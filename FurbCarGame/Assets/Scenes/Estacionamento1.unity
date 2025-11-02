@@ -4177,6 +4177,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0174aedd11c9fe34e874cda3d1f9e6d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshFL: {fileID: 1896144597}
+  meshFR: {fileID: 1896144596}
+  meshRL: {fileID: 1896144595}
+  meshRR: {fileID: 1896144594}
+  wheelFL: {fileID: 1896144601}
+  wheelFR: {fileID: 1896144600}
+  wheelRL: {fileID: 1896144599}
+  wheelRR: {fileID: 1896144598}
+  cameraFirstPerson: {fileID: 1958492882}
+  cameraThirdPerson: {fileID: 1523056037}
+  maxSteerAngle: 35
+  maxMotorTorque: 1500
+  maxBrakeTorque: 3000
+  idleRpm: 800
+  maxRpm: 7000
+  engineTorque: 400
+  finalDrive: 3.42
+  clutchThreshold: 0.9
+  gearRatios:
+  - -2.9
+  - 0
+  - 3.6
+  - 2.2
+  - 1.5
+  - 1
+  - 0.8
+  stoppedSpeedThreshold: 0.5
 --- !u!1 &771820955
 GameObject:
   m_ObjectHideFlags: 0
