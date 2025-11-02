@@ -4185,6 +4185,8 @@ MonoBehaviour:
   wheelFR: {fileID: 1896144600}
   wheelRL: {fileID: 1896144599}
   wheelRR: {fileID: 1896144598}
+  steeringWheel: {fileID: 931402221}
+  maxSteeringWheelAngle: 450
   cameraFirstPerson: {fileID: 1958492882}
   cameraThirdPerson: {fileID: 1523056037}
   maxSteerAngle: 35
@@ -5324,6 +5326,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 931097113}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &931402221 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 937435647332992572, guid: 28651811504dc9348bab838990c0f4d1, type: 3}
+  m_PrefabInstance: {fileID: 1896144592}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &968657159
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,6 +17,11 @@ public class CarroVolante : MonoBehaviour
     public WheelCollider wheelRL;
     public WheelCollider wheelRR;
 
+    [Header("Steering Wheel")]
+    public Transform steeringWheel;
+    public float maxSteeringWheelAngle = 450f;
+    private Quaternion volanteBaseRotation;
+
     [Header("Câmeras")]
     public Camera cameraFirstPerson;
     public Camera cameraThirdPerson;
@@ -45,7 +50,6 @@ public class CarroVolante : MonoBehaviour
     // -------------------------
     // Estado interno
     // -------------------------
-    [Header("RigidBody")]
     private Rigidbody rb;
 
     private enum Gear { R = 0, N = 1, G1 = 2, G2 = 3, G3 = 4, G4 = 5, G5 = 6 }
@@ -57,6 +61,7 @@ public class CarroVolante : MonoBehaviour
     private bool inFirstPerson = true;
 
     private float engineRpm = 0f;
+    private float currentSteerNorm = 0f;
 
     // -------------------------
     // Estado Logitech
@@ -78,6 +83,7 @@ public class CarroVolante : MonoBehaviour
         Debug.Log("SteeringInit:" + LogitechGSDK.LogiSteeringInitialize(false));
         engineRpm = idleRpm;
         SetCameraMode(inFirstPerson);
+        volanteBaseRotation = steeringWheel.localRotation;
     }
 
     private void OnApplicationQuit()
@@ -106,6 +112,8 @@ public class CarroVolante : MonoBehaviour
         float NormalizeAxis(int val) => Mathf.Clamp(val / 32767f, -1f, 1f);
 
         var rawSteer = NormalizeAxis(rec.lX);
+        currentSteerNorm = Mathf.Clamp(rawSteer, -1f, 1f);
+
         var rawAccel = NormalizeAxis(rec.lY);
         var rawBrake = NormalizeAxis(rec.lRz);
         var rawClutch = 0f;
@@ -121,9 +129,9 @@ public class CarroVolante : MonoBehaviour
         var brake = Mathf.InverseLerp(-1f, 1f, rawBrake);
         var clutch = Mathf.InverseLerp(-1f, 1f, rawClutch);
 
-        var steerNorm = Mathf.Clamp(rawSteer, -1f, 1f);
-        var steerAngle = steerNorm * maxSteerAngle;
+        var steerAngle = currentSteerNorm * maxSteerAngle;
         ApplySteering(steerAngle);
+        UpdateVolanteVisual();
 
         var clutchFullyPressed = clutch >= clutchThreshold;
 
@@ -179,6 +187,12 @@ public class CarroVolante : MonoBehaviour
         UpdateMesh(wheelFR, meshFR);
         UpdateMesh(wheelRL, meshRL);
         UpdateMesh(wheelRR, meshRR);
+    }
+
+    private void UpdateVolanteVisual()
+    {
+        var rotationY = currentSteerNorm * maxSteeringWheelAngle;
+        steeringWheel.localRotation = volanteBaseRotation * Quaternion.Euler(0f, rotationY, 0f);
     }
 
     // ---------------------------
