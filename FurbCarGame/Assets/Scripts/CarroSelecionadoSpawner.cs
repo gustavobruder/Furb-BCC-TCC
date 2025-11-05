@@ -2,28 +2,22 @@ using UnityEngine;
 
 public class CarroSelecionadoSpawner : MonoBehaviour
 {
-    [Header("Lista de prefabs dos carros")]
     public GameObject[] carrosDisponiveis;
+    public Vector3 posicaoInicialCarro = new Vector3(-8f, 0f, -20f);
 
-    [Header("Posição inicial do carro na cena")]
-    public Vector3 posicaoInicial = new Vector3(-8f, 0f, -20f);
-
-    void Start()
+    private void Start()
     {
-        // Lê o índice salvo no menu
-        int indiceCarro = PlayerPrefs.GetInt("indiceCarro", 0);
+        var indiceCarroSelecionado = PlayerPrefs.GetInt("indiceCarroSelecionado", 0);
 
-        // Verifica se o índice é válido
-        if (indiceCarro < 0 || indiceCarro >= carrosDisponiveis.Length)
+        if (indiceCarroSelecionado < 0 || indiceCarroSelecionado >= carrosDisponiveis.Length)
         {
-            Debug.LogWarning($"Índice de carro inválido ({indiceCarro}), usando o primeiro carro.");
-            indiceCarro = 0;
+            Debug.LogWarning($"Índice de carro inválido ({indiceCarroSelecionado}), usando o primeiro carro.");
+            indiceCarroSelecionado = 0;
         }
 
-        // Instancia o carro correspondente
-        GameObject carroSelecionado = Instantiate(
-            carrosDisponiveis[indiceCarro],
-            posicaoInicial,
+        var carroSelecionado = Instantiate(
+            carrosDisponiveis[indiceCarroSelecionado],
+            posicaoInicialCarro,
             Quaternion.identity
         );
 

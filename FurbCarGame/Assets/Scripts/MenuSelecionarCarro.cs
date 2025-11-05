@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -7,81 +5,62 @@ using UnityEngine.SceneManagement;
 public class MenuSelecionarCarro : MonoBehaviour
 {
     public GameObject[] carros;
-    public Button esquerda;
-    public Button direita;
-    int indice;
+    public Button btnEsquerda;
+    public Button btnDireita;
 
-    void Start()
+    private int _indiceCarroSelecionado;
+
+    private void Start()
     {
-        indice = PlayerPrefs.GetInt("indiceCarro");
-
-        for (int i = 0; i < carros.Length; i++)
-        {
-            carros[i].SetActive(false);
-            carros[indice].SetActive(true);
-        }
+        _indiceCarroSelecionado = PlayerPrefs.GetInt("indiceCarroSelecionado");
+        DefinirCarroSelecionado();
     }
 
-    void Update()
+    private void Update()
     {
-        if (indice >= carros.Length - 1)
-        {
-            direita.interactable = false;
-        }
-        else
-        {
-            direita.interactable = true;
-        }
-
-        if (indice <= 0)
-        {
-            esquerda.interactable = false;
-        }
-        else
-        {
-            esquerda.interactable = true;
-        }
+        btnEsquerda.interactable = _indiceCarroSelecionado > 0;
+        btnDireita.interactable = _indiceCarroSelecionado < carros.Length - 1;
     }
 
     public void Esquerda()
     {
-        indice--;
-
-        for (int i = 0; i < carros.Length; i++)
-        {
-            carros[i].SetActive(false);
-            carros[indice].SetActive(true);
-        }
-
-        PlayerPrefs.SetInt("indiceCarro", indice);
-        PlayerPrefs.Save();
+        _indiceCarroSelecionado--;
+        DefinirCarroSelecionado();
+        SalvarIndiceCarroSelecionado();
     }
 
     public void Direita()
     {
-        indice++;
+        _indiceCarroSelecionado++;
+        DefinirCarroSelecionado();
+        SalvarIndiceCarroSelecionado();
+    }
 
-        for (int i = 0; i < carros.Length; i++)
+    private void DefinirCarroSelecionado()
+    {
+        for (var i = 0; i < carros.Length; i++)
         {
-            carros[i].SetActive(false);
-            carros[indice].SetActive(true);
+            carros[i].SetActive(i == _indiceCarroSelecionado);
         }
+    }
 
-        PlayerPrefs.SetInt("indiceCarro", indice);
+    private void SalvarIndiceCarroSelecionado()
+    {
+        PlayerPrefs.SetInt("indiceCarroSelecionado", _indiceCarroSelecionado);
         PlayerPrefs.Save();
     }
 
-    public void Jogar1()
+    public void JogarFase1()
     {
         SceneManager.LoadSceneAsync("Estacionamento1");
     }
 
-    public void Jogar2()
+    public void JogarFase2()
     {
         SceneManager.LoadSceneAsync("Estacionamento2");
     }
 
-    public void Jogar3()
+    public void JogarFase3()
     {
         SceneManager.LoadSceneAsync("Estacionamento3");
     }

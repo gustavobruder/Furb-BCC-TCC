@@ -3,22 +3,22 @@ using UnityEngine.UI;
 
 public class Speedometer : MonoBehaviour
 {
-    public float maxSpeed = 280f;
-    public float speed = 0.0f;
-
-    public float minSpeedArrowAngle;
-    public float maxSpeedArrowAngle;
-
     public Rigidbody rb;
-
-    [Header("UI")]
     public Text speedLabel;
-    public RectTransform arrow;
+    public RectTransform ponteiroVelocimetro;
+
+    public float velocidadeMax = 280f;
+    public float velocidade = 0.0f;
+
+    public float anguloVelocidadeMin;
+    public float anguloVelocidadeMax;
 
     private void Update()
     {
-        speed = rb.linearVelocity.magnitude * 3.6f;
-        speedLabel.text = ((int)speed) + " km/h";
-        arrow.localEulerAngles = new Vector3(0, 0, Mathf.Lerp(minSpeedArrowAngle, maxSpeedArrowAngle, speed / maxSpeed));
+        velocidade = rb.linearVelocity.magnitude * 3.6f;
+        speedLabel.text = ((int)velocidade) + " km/h";
+        ponteiroVelocimetro.localEulerAngles = new Vector3(0, 0,
+            Mathf.Lerp(anguloVelocidadeMin, anguloVelocidadeMax, velocidade / velocidadeMax)
+        );
     }
 }

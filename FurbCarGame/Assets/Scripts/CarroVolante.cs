@@ -1,6 +1,7 @@
 using System;
 using Logitech;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody))]
 public class CarroVolante : MonoBehaviour
@@ -73,9 +74,9 @@ public class CarroVolante : MonoBehaviour
     private const int IDX_BTN_HANDBRAKE_DOWN = 20;
     private const int IDX_BTN_HANDBRAKE_UP = 19;
     private const int IDX_BTN_CAMERA = 6;
+    private const int IDX_BTN_PLAYSTATION = 24; // btn options = 9
 
     private byte[] prevButtons = new byte[128];
-    private LogitechGSDK.DIJOYSTATE2ENGINES lastRec;
 
     private void Start()
     {
@@ -96,7 +97,6 @@ public class CarroVolante : MonoBehaviour
         if (LogitechGSDK.LogiUpdate() && LogitechGSDK.LogiIsConnected(0))
         {
             var rec = LogitechGSDK.LogiGetStateUnity(0);
-            lastRec = rec;
             ProcessInput(rec);
             UpdateWheelVisuals();
             Array.Copy(rec.rgbButtons, prevButtons, Math.Min(prevButtons.Length, rec.rgbButtons.Length));
@@ -157,6 +157,9 @@ public class CarroVolante : MonoBehaviour
 
         // Câmera
         if (BtnPressed(rec, IDX_BTN_CAMERA)) ToggleCamera();
+
+        // PlayStation
+        if (BtnPressed(rec, IDX_BTN_PLAYSTATION)) SceneManager.LoadSceneAsync("MenuPrincipal");
 
         // POV (olhar)
         HandlePOV(rec.rgdwPOV[0]);
