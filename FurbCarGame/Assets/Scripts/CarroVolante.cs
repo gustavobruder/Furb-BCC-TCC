@@ -24,8 +24,8 @@ public class CarroVolante : MonoBehaviour
     private Quaternion volanteBaseRotation;
 
     [Header("Câmeras")]
-    public Camera cameraFirstPerson;
-    public Camera cameraThirdPerson;
+    public Camera cameraPrimeiraPessoa;
+    public Camera cameraTerceiraPessoa;
 
     // -------------------------
     // Parâmetros da física do carro
@@ -59,7 +59,7 @@ public class CarroVolante : MonoBehaviour
     private bool engineOn = false;
     private bool seatbeltOn = false;
     private bool handbrakeEngaged = true;
-    private bool inFirstPerson = true;
+    private bool cameraEstaEmPrimeiraPessoa = true;
 
     private float engineRpm = 0f;
     private float currentSteerNorm = 0f;
@@ -67,23 +67,22 @@ public class CarroVolante : MonoBehaviour
     // -------------------------
     // Estado Logitech
     // -------------------------
-    private const int IDX_BTN_SEATBELT = 7;
-    private const int IDX_BTN_ENGINE = 23;
-    private const int IDX_BTN_GEAR_DOWN = 5;
-    private const int IDX_BTN_GEAR_UP = 4;
-    private const int IDX_BTN_HANDBRAKE_DOWN = 20;
-    private const int IDX_BTN_HANDBRAKE_UP = 19;
-    private const int IDX_BTN_CAMERA = 6;
-    private const int IDX_BTN_PLAYSTATION = 24; // btn options = 9
-
-    private byte[] prevButtons = new byte[128];
+    private const int INDICE_BTN_CINTO_DE_SEGURANCA = 7;
+    private const int INDICE_BTN_MOTOR = 23;
+    private const int INDICE_BTN_MARCHA_BAIXO = 5;
+    private const int INDICE_BTN_MARCHA_CIMA = 4;
+    private const int INDICE_BTN_FREIO_DE_MAO_BAIXO = 20;
+    private const int INDICE_BTN_FREIO_DE_MAO_CIMA = 19;
+    private const int INDICE_BTN_CAMERA = 6;
+    private const int INDICE_BTN_PLAYSTATION = 24; // btn options = 9
+    private bool[] _btnsPressionados = new bool[128];
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         Debug.Log("SteeringInit:" + LogitechGSDK.LogiSteeringInitialize(false));
         engineRpm = idleRpm;
-        SetCameraMode(inFirstPerson);
+        DefinirModoCamera();
         volanteBaseRotation = steeringWheel.localRotation;
     }
 
@@ -96,10 +95,9 @@ public class CarroVolante : MonoBehaviour
     {
         if (LogitechGSDK.LogiUpdate() && LogitechGSDK.LogiIsConnected(0))
         {
-            var rec = LogitechGSDK.LogiGetStateUnity(0);
-            ProcessInput(rec);
+            var logiState = LogitechGSDK.LogiGetStateUnity(0);
+            ProcessInput(logiState);
             UpdateWheelVisuals();
-            Array.Copy(rec.rgbButtons, prevButtons, Math.Min(prevButtons.Length, rec.rgbButtons.Length));
         }
         else if (!LogitechGSDK.LogiIsConnected(0))
         {
@@ -107,19 +105,19 @@ public class CarroVolante : MonoBehaviour
         }
     }
 
-    private void ProcessInput(LogitechGSDK.DIJOYSTATE2ENGINES rec)
+    private void ProcessInput(LogitechGSDK.DIJOYSTATE2ENGINES logiState)
     {
-        float NormalizeAxis(int val) => Mathf.Clamp(val / 32767f, -1f, 1f);
+        float NormalizarEixo(int eixo) => Mathf.Clamp(eixo / 32767f, -1f, 1f);
 
-        var rawSteer = NormalizeAxis(rec.lX);
+        var rawSteer = NormalizarEixo(logiState.lX);
         currentSteerNorm = Mathf.Clamp(rawSteer, -1f, 1f);
 
-        var rawAccel = NormalizeAxis(rec.lY);
-        var rawBrake = NormalizeAxis(rec.lRz);
+        var rawAccel = NormalizarEixo(logiState.lY);
+        var rawBrake = NormalizarEixo(logiState.lRz);
         var rawClutch = 0f;
 
-        if (rec.rglSlider != null && rec.rglSlider.Length > 0)
-            rawClutch = Mathf.Clamp(rec.rglSlider[0] / 32767f, -1f, 1f);
+        if (logiState.rglSlider != null && logiState.rglSlider.Length > 0)
+            rawClutch = Mathf.Clamp(logiState.rglSlider[0] / 32767f, -1f, 1f);
 
         rawAccel *= -1f;
         rawBrake *= -1f;
@@ -135,34 +133,30 @@ public class CarroVolante : MonoBehaviour
 
         var clutchFullyPressed = clutch >= clutchThreshold;
 
-        bool BtnPressed(LogitechGSDK.DIJOYSTATE2ENGINES state, int idx)
+        bool BtnPressionado(LogitechGSDK.DIJOYSTATE2ENGINES logiState, int indiceBtn)
         {
-            if (idx < 0 || idx >= state.rgbButtons.Length) return false;
-            return state.rgbButtons[idx] == 128 && prevButtons[idx] != 128;
+            if (indiceBtn < 0 || indiceBtn >= logiState.rgbButtons.Length)
+                return false;
+
+            if (!_btnsPressionados[indiceBtn] && logiState.rgbButtons[indiceBtn] == 128)
+                _btnsPressionados[indiceBtn] = true;
+            else if (logiState.rgbButtons[indiceBtn] != 128)
+                _btnsPressionados[indiceBtn] = false;
+
+            return _btnsPressionados[indiceBtn];
         }
 
-        // Cinto
-        if (BtnPressed(rec, IDX_BTN_SEATBELT)) ToggleSeatbelt();
-
-        // Ligar/desligar motor 
-        if (BtnPressed(rec, IDX_BTN_ENGINE)) TryToggleEngine();
-
-        // Câmbio: diminuir/aumentar marcha
-        if (BtnPressed(rec, IDX_BTN_GEAR_DOWN)) TryChangeGear(false, clutchFullyPressed);
-        if (BtnPressed(rec, IDX_BTN_GEAR_UP)) TryChangeGear(true, clutchFullyPressed);
-
-        // Freio de mão: soltar/puxar
-        if (BtnPressed(rec, IDX_BTN_HANDBRAKE_DOWN)) TrySetHandbrake(false);
-        if (BtnPressed(rec, IDX_BTN_HANDBRAKE_UP)) TrySetHandbrake(true);
-
-        // Câmera
-        if (BtnPressed(rec, IDX_BTN_CAMERA)) ToggleCamera();
-
-        // PlayStation
-        if (BtnPressed(rec, IDX_BTN_PLAYSTATION)) SceneManager.LoadSceneAsync("MenuPrincipal");
+        if (BtnPressionado(logiState, INDICE_BTN_CINTO_DE_SEGURANCA)) AlternarCintoDeSeguranca();
+        if (BtnPressionado(logiState, INDICE_BTN_MOTOR)) AlternarMotor();
+        if (BtnPressionado(logiState, INDICE_BTN_MARCHA_BAIXO)) TrocarMarcha(false, clutchFullyPressed);
+        if (BtnPressionado(logiState, INDICE_BTN_MARCHA_CIMA)) TrocarMarcha(true, clutchFullyPressed);
+        if (BtnPressionado(logiState, INDICE_BTN_FREIO_DE_MAO_BAIXO)) AlternarFreioDeMao(false);
+        if (BtnPressionado(logiState, INDICE_BTN_FREIO_DE_MAO_CIMA)) AlternarFreioDeMao(true);
+        if (BtnPressionado(logiState, INDICE_BTN_CAMERA)) AlternarCamera();
+        if (BtnPressionado(logiState, INDICE_BTN_PLAYSTATION)) SceneManager.LoadSceneAsync("MenuPrincipal");
 
         // POV (olhar)
-        HandlePOV(rec.rgdwPOV[0]);
+        HandlePOV(logiState.rgdwPOV[0]);
 
         // Física e motor
         UpdateEngineAndDrive(throttle, brake, clutchFullyPressed, clutch);
@@ -250,7 +244,7 @@ public class CarroVolante : MonoBehaviour
         if (wheelRR) wheelRR.motorTorque = 0f;
     }
 
-    private void ToggleSeatbelt()
+    private void AlternarCintoDeSeguranca()
     {
         if (rb.linearVelocity.magnitude > stoppedSpeedThreshold && seatbeltOn)
         {
@@ -265,19 +259,19 @@ public class CarroVolante : MonoBehaviour
     // ---------------------------
     // Ligar/desligar motor
     // ---------------------------
-    private void TryToggleEngine()
+    private void AlternarMotor()
     {
         if (!engineOn)
         {
-            TryToggleEngineOn();
+            LigarMotor();
         }
         else
         {
-            TryToggleEngineOff();
+            DesligarMotor();
         }
     }
 
-    private void TryToggleEngineOn()
+    private void LigarMotor()
     {
         if (!seatbeltOn)
         {
@@ -287,7 +281,7 @@ public class CarroVolante : MonoBehaviour
         var stopped = rb.linearVelocity.magnitude <= stoppedSpeedThreshold;
         if (!stopped)
         {
-            Debug.Log("O carro deve estar parado para ligar.");
+            Debug.Log("O carro deve estar parado para ligar o motor.");
             return;
         }
         if (currentGear == Gear.N)
@@ -297,10 +291,9 @@ public class CarroVolante : MonoBehaviour
 
         engineOn = true;
         engineRpm = idleRpm;
-        Debug.Log("Carro ligado.");
     }
 
-    private void TryToggleEngineOff()
+    private void DesligarMotor()
     {
         if (currentGear != Gear.N)
         {
@@ -315,57 +308,52 @@ public class CarroVolante : MonoBehaviour
 
         engineOn = false;
         engineRpm = 0f;
-        Debug.Log("Carro desligado. Agora retire o cinto de segurança.");
     }
 
-    private void TryChangeGear(bool up, bool clutchFullyPressed)
+    private void TrocarMarcha(bool aumentarMarcha, bool embreagemCompletamentePressionada)
     {
-        if (!clutchFullyPressed)
+        if (!embreagemCompletamentePressionada)
         {
-            Debug.Log("Aperte completamente a embreagem para trocar a marcha.");
+            Debug.Log("Pise completamente na embreagem para trocar de marcha.");
             return;
         }
 
-        var idx = (int)currentGear;
-        if (up && idx < gearRatios.Length - 1)
+        var indiceMarcha = (int)currentGear;
+        if (aumentarMarcha && indiceMarcha < gearRatios.Length - 1)
         {
-            currentGear = (Gear)(idx + 1);
-            Debug.Log("Marcha aumentada -> " + currentGear);
+            currentGear = (Gear)(indiceMarcha + 1);
         }
-        else if (!up && idx > 0)
+        else if (!aumentarMarcha && indiceMarcha > 0)
         {
-            currentGear = (Gear)(idx - 1);
-            Debug.Log("Marcha reduzida -> " + currentGear);
+            currentGear = (Gear)(indiceMarcha - 1);
         }
     }
 
-    private void TrySetHandbrake(bool up)
+    private void AlternarFreioDeMao(bool puxarFreioDeMao)
     {
-        var stopped = rb.linearVelocity.magnitude <= stoppedSpeedThreshold;
-        if (!stopped)
+        var carroParado = rb.linearVelocity.magnitude <= stoppedSpeedThreshold;
+        if (!carroParado)
         {
-            Debug.Log("Car must be stopped to change handbrake.");
+            Debug.Log("O carro deve estar parado para acionar o freio de mão.");
             return;
         }
 
-        handbrakeEngaged = up;
-        var rearBrake = handbrakeEngaged ? maxBrakeTorque : 0f;
-        if (wheelRL) wheelRL.brakeTorque = rearBrake;
-        if (wheelRR) wheelRR.brakeTorque = rearBrake;
-        Debug.Log("Freio de mão " + (handbrakeEngaged ? "puxado" : "abaixado"));
+        handbrakeEngaged = puxarFreioDeMao;
+        var freioTraseiro = handbrakeEngaged ? maxBrakeTorque : 0f;
+        if (wheelRL) wheelRL.brakeTorque = freioTraseiro;
+        if (wheelRR) wheelRR.brakeTorque = freioTraseiro;
     }
 
-    private void ToggleCamera()
+    private void AlternarCamera()
     {
-        inFirstPerson = !inFirstPerson;
-        SetCameraMode(inFirstPerson);
-        Debug.Log("Câmera -> " + (inFirstPerson ? "1ª pessoa" : "3ª pessoa"));
+        cameraEstaEmPrimeiraPessoa = !cameraEstaEmPrimeiraPessoa;
+        DefinirModoCamera();
     }
 
-    private void SetCameraMode(bool firstPerson)
+    private void DefinirModoCamera()
     {
-        if (cameraFirstPerson) cameraFirstPerson.enabled = firstPerson;
-        if (cameraThirdPerson) cameraThirdPerson.enabled = !firstPerson;
+        cameraPrimeiraPessoa.enabled = cameraEstaEmPrimeiraPessoa;
+        cameraTerceiraPessoa.enabled = !cameraEstaEmPrimeiraPessoa;
     }
 
     // ---------------------------
@@ -387,19 +375,19 @@ public class CarroVolante : MonoBehaviour
             default: eulerOffset = Vector3.zero; break;
         }
 
-        Camera activeCam = inFirstPerson ? cameraFirstPerson : cameraThirdPerson;
+        Camera activeCam = cameraEstaEmPrimeiraPessoa ? cameraPrimeiraPessoa : cameraTerceiraPessoa;
         if (activeCam == null) return;
 
-        if (originalCameraLocalRotFirst == Quaternion.identity && cameraFirstPerson != null)
-            originalCameraLocalRotFirst = cameraFirstPerson.transform.localRotation;
-        if (originalCameraLocalRotThird == Quaternion.identity && cameraThirdPerson != null)
-            originalCameraLocalRotThird = cameraThirdPerson.transform.localRotation;
+        if (originalCameraLocalRotFirst == Quaternion.identity && cameraPrimeiraPessoa != null)
+            originalCameraLocalRotFirst = cameraPrimeiraPessoa.transform.localRotation;
+        if (originalCameraLocalRotThird == Quaternion.identity && cameraTerceiraPessoa != null)
+            originalCameraLocalRotThird = cameraTerceiraPessoa.transform.localRotation;
 
         Quaternion target = Quaternion.Euler(eulerOffset);
-        if (inFirstPerson && cameraFirstPerson != null)
-            cameraFirstPerson.transform.localRotation = originalCameraLocalRotFirst * target;
-        if (!inFirstPerson && cameraThirdPerson != null)
-            cameraThirdPerson.transform.localRotation = originalCameraLocalRotThird * target;
+        if (cameraEstaEmPrimeiraPessoa && cameraPrimeiraPessoa != null)
+            cameraPrimeiraPessoa.transform.localRotation = originalCameraLocalRotFirst * target;
+        if (!cameraEstaEmPrimeiraPessoa && cameraTerceiraPessoa != null)
+            cameraTerceiraPessoa.transform.localRotation = originalCameraLocalRotThird * target;
     }
 
     // ---------------------------
