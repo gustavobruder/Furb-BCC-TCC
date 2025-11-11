@@ -169,8 +169,8 @@ MonoBehaviour:
   - {fileID: 1810700269403590129}
   - {fileID: 3700183097888316259}
   - {fileID: 1991614773187200226}
-  esquerda: {fileID: 2013396274}
-  direita: {fileID: 2052173360}
+  btnEsquerda: {fileID: 2013396274}
+  btnDireita: {fileID: 2052173360}
 --- !u!1 &103984159
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,11 +692,11 @@ RectTransform:
   - {fileID: 103984160}
   m_Father: {fileID: 1709639154}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 200, y: -240}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 200, y: 50}
   m_SizeDelta: {x: 160, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &260774698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -743,7 +743,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 79423339}
         m_TargetAssemblyTypeName: MenuSelecionarCarro, Assembly-CSharp
-        m_MethodName: Jogar3
+        m_MethodName: JogarFase3
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1081,11 +1081,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1709639154}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 200}
-  m_SizeDelta: {x: 200, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -50}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &540490754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1133,8 +1133,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 52
+  m_fontSizeBase: 52
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1650,11 +1650,11 @@ RectTransform:
   - {fileID: 1574609486}
   m_Father: {fileID: 1709639154}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -240}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: 160, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1591751053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1701,7 +1701,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 79423339}
         m_TargetAssemblyTypeName: MenuSelecionarCarro, Assembly-CSharp
-        m_MethodName: Jogar2
+        m_MethodName: JogarFase2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1783,11 +1783,11 @@ RectTransform:
   - {fileID: 1359220849}
   m_Father: {fileID: 1709639154}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -200, y: -240}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -200, y: 50}
   m_SizeDelta: {x: 160, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1708415227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1834,7 +1834,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 79423339}
         m_TargetAssemblyTypeName: MenuSelecionarCarro, Assembly-CSharp
-        m_MethodName: Jogar1
+        m_MethodName: JogarFase1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2025,7 +2025,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -270, y: -100}
+  m_AnchoredPosition: {x: -310, y: -100}
   m_SizeDelta: {x: 60, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2013396274
@@ -2158,7 +2158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 270, y: -100}
+  m_AnchoredPosition: {x: 310, y: -100}
   m_SizeDelta: {x: 60, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2052173360

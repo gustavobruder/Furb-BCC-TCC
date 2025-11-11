@@ -1,11 +1,12 @@
 using UnityEngine;
 
-public class CarroSelecionadoSpawner : MonoBehaviour
+public class SpawnerCarroSelecionado : MonoBehaviour
 {
     public GameObject[] carrosDisponiveis;
     public Vector3 posicaoInicialCarro = new Vector3(-8f, 0f, -20f);
+    public GameObject CarrosSelecionado { get; private set; }
 
-    private void Start()
+    private void Awake()
     {
         var indiceCarroSelecionado = PlayerPrefs.GetInt("indiceCarroSelecionado", 0);
 
@@ -15,12 +16,17 @@ public class CarroSelecionadoSpawner : MonoBehaviour
             indiceCarroSelecionado = 0;
         }
 
-        var carroSelecionado = Instantiate(
-            carrosDisponiveis[indiceCarroSelecionado],
-            posicaoInicialCarro,
-            Quaternion.identity
-        );
-
-        carroSelecionado.name = "CarroSelecionado";
+        for (var i = 0; i < carrosDisponiveis.Length; i++)
+        {
+            if (i != indiceCarroSelecionado)
+            {
+                Destroy(carrosDisponiveis[i]);
+            }
+            else
+            {
+                CarrosSelecionado = carrosDisponiveis[i];
+                CarrosSelecionado.SetActive(true);
+            }
+        }
     }
 }

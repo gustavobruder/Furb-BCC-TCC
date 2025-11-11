@@ -2,32 +2,59 @@ using UnityEngine;
 
 public class VerificarCarroNaVaga : MonoBehaviour
 {
+    public Rigidbody rb;
     public BoxCollider carroCollider;
-    public BoxCollider vagaCollider;
+    public GerenciadorVagas gerenciadorVagas;
+    public CarroCintoSeguranca carroCintoSeguranca;
+    public CarroMotor carroMotor;
+    public CarroFreioMao carroFreioMao;
+    public Cronometro cronometro;
 
     private bool _carroEstaDentroDaVagaTrigger = false;
+    private float _velocidadeParadaThreshold = 0.5f;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other == vagaCollider)
+        if (other == gerenciadorVagas.BoxColliderVagaEstacionamentoSorteada)
             _carroEstaDentroDaVagaTrigger = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other == vagaCollider)
+        if (other == gerenciadorVagas.BoxColliderVagaEstacionamentoSorteada)
             _carroEstaDentroDaVagaTrigger = false;
     }
 
     private void Update()
     {
-        if (CarroEstaDentroDaVaga())
+        if (CarroEstacionadoCorretamente())
         {
-            Debug.Log("✅ Carro completamente dentro da vaga!");
+            cronometro.PararCronometro();
+            Debug.Log("✅ Carro estacionado corretamente na vaga!");
         }
     }
 
-    public bool CarroEstaDentroDaVaga()
+    private bool CarroEstacionadoCorretamente()
+    {
+        var carroForaDaVaga = !CarroEstaDentroDaVaga();
+        if (carroForaDaVaga) return false;
+
+        var carroEmMovimento = rb.linearVelocity.magnitude > _velocidadeParadaThreshold;
+        if (carroEmMovimento) return false;
+
+        var freioDeMaoSolto = !carroFreioMao.FreioDeMaoPuxado;
+        if (freioDeMaoSolto) return false;
+
+        var motorLigado = carroMotor.MotorLigado;
+        if (motorLigado) return false;
+
+        var cintoDeSegurancaColocado = carroCintoSeguranca.CintoDeSegurancaColocado;
+        if (cintoDeSegurancaColocado) return false;
+
+        return true;
+    }
+
+    private bool CarroEstaDentroDaVaga()
     {
         if (!_carroEstaDentroDaVagaTrigger)
             return false;
@@ -53,16 +80,16 @@ public class VerificarCarroNaVaga : MonoBehaviour
 
         foreach (var ponto in pontos)
         {
-            if (!EstaDentroDaVaga(ponto))
+            if (!PontoEstaDentroDaVaga(ponto))
                 return false;
         }
 
         return true;
     }
 
-    private bool EstaDentroDaVaga(Vector3 ponto)
+    private bool PontoEstaDentroDaVaga(Vector3 ponto)
     {
-        var pontoMaisProximo = vagaCollider.ClosestPoint(ponto);
+        var pontoMaisProximo = gerenciadorVagas.BoxColliderVagaEstacionamentoSorteada.ClosestPoint(ponto);
         return Vector3.Distance(ponto, pontoMaisProximo) < 0.001f;
     }
 }

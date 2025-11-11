@@ -6,6 +6,7 @@ public class GerenciadorVagas : MonoBehaviour
     public List<Transform> vagasEstacionamento;
     public List<GameObject> carrosPrefabs;
     public GameObject indicadorObjetivoPrefab;
+    public BoxCollider BoxColliderVagaEstacionamentoSorteada { get; private set; }
 
     private Transform _vagaEstacionamentoSorteada;
     private int _indiceVagaEstacionamentoSorteada;
@@ -13,6 +14,7 @@ public class GerenciadorVagas : MonoBehaviour
     private void Start()
     {
         SortearVagaParaEstacionar();
+        AdicionarBoxColliderNaVagaSorteada();
         GerarCarrosEstacionados();
         GerarIndicadorObjetivo();
     }
@@ -21,7 +23,14 @@ public class GerenciadorVagas : MonoBehaviour
     {
         _indiceVagaEstacionamentoSorteada = Random.Range(0, vagasEstacionamento.Count);
         _vagaEstacionamentoSorteada = vagasEstacionamento[_indiceVagaEstacionamentoSorteada];
-        Debug.Log("Vaga sorteada para estacionar: " + _vagaEstacionamentoSorteada.name);
+    }
+
+    private void AdicionarBoxColliderNaVagaSorteada()
+    {
+        BoxColliderVagaEstacionamentoSorteada = _vagaEstacionamentoSorteada.gameObject.AddComponent<BoxCollider>();
+        BoxColliderVagaEstacionamentoSorteada.isTrigger = true;
+        BoxColliderVagaEstacionamentoSorteada.center = new Vector3(0f, 1.5f, 0f);
+        BoxColliderVagaEstacionamentoSorteada.size = new Vector3(7f, 3f, 3.4f);
     }
 
     private void GerarCarrosEstacionados()
@@ -38,7 +47,7 @@ public class GerenciadorVagas : MonoBehaviour
                 var vagaEstacionamento = vagasEstacionamento[i];
                 var carroPrefab = carrosPrefabs[indiceAleatorio];
 
-                // rotação adicional de +90° no eixo Y, devido a orientação dos modelos de carros e vagas 
+                // rotação adicional de +90° no eixo Y, devido a orientação dos modelos de carros e vagas
                 var rotacao = vagaEstacionamento.rotation * Quaternion.Euler(0, 90, 0);
 
                 var carroObstaculo = Instantiate(carroPrefab, vagaEstacionamento.position, rotacao);
