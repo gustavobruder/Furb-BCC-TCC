@@ -455,7 +455,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 2, y: 1, z: 4.5}
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Center: {x: 0, y: 0.55, z: 0}
 --- !u!114 &7709674720247990760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -469,8 +469,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2613246741769982064}
-  gerenciadorVagas: {fileID: 0}
   carroCollider: {fileID: 4308076481265060319}
+  gerenciadorVagas: {fileID: 0}
   carroCintoSeguranca: {fileID: 536054554126125352}
   carroMotor: {fileID: 7624990445608011234}
   carroFreioMao: {fileID: 5391979324967537307}
@@ -851,6 +851,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   volante: {fileID: 2257354117306881560}
   anguloMaxVolante: 450
+  volanteComRotacaoInicial: 1
 --- !u!114 &6363726420736204839
 MonoBehaviour:
   m_ObjectHideFlags: 0

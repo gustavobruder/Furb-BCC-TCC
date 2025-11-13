@@ -1063,6 +1063,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   volante: {fileID: 2613665995674597096}
   anguloMaxVolante: 450
+  volanteComRotacaoInicial: 1
 --- !u!114 &5966146513558193957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1228,7 +1229,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 2, y: 1, z: 4.5}
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Center: {x: 0, y: 0.55, z: 0}
 --- !u!114 &4131573725740426714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1242,8 +1243,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 3348355832310993430}
-  gerenciadorVagas: {fileID: 0}
   carroCollider: {fileID: 5253867800982414000}
+  gerenciadorVagas: {fileID: 0}
   carroCintoSeguranca: {fileID: 4685398863036035008}
   carroMotor: {fileID: 4327003729812807433}
   carroFreioMao: {fileID: 8009696160951381042}

@@ -12809,7 +12809,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2554772331497583713, guid: 6736cd20b373bfa4ea500f6111c8b197, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 2554772331497583713, guid: 6736cd20b373bfa4ea500f6111c8b197, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12817,7 +12817,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2554772331497583713, guid: 6736cd20b373bfa4ea500f6111c8b197, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -20
+      value: -24
       objectReference: {fileID: 0}
     - target: {fileID: 2554772331497583713, guid: 6736cd20b373bfa4ea500f6111c8b197, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12918,7 +12918,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6310788021373370401, guid: 5009a64d750dcf94da0c1a3a67b2f06d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 6310788021373370401, guid: 5009a64d750dcf94da0c1a3a67b2f06d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12926,7 +12926,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6310788021373370401, guid: 5009a64d750dcf94da0c1a3a67b2f06d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -20
+      value: -24
       objectReference: {fileID: 0}
     - target: {fileID: 6310788021373370401, guid: 5009a64d750dcf94da0c1a3a67b2f06d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -13007,7 +13007,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 23680652986251212, guid: 72253bb5b78b1164a9da18130b02725c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 23680652986251212, guid: 72253bb5b78b1164a9da18130b02725c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13015,7 +13015,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 23680652986251212, guid: 72253bb5b78b1164a9da18130b02725c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -20
+      value: -24
       objectReference: {fileID: 0}
     - target: {fileID: 23680652986251212, guid: 72253bb5b78b1164a9da18130b02725c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -13043,6 +13043,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 23680652986251212, guid: 72253bb5b78b1164a9da18130b02725c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542200631761002863, guid: 72253bb5b78b1164a9da18130b02725c, type: 3}
+      propertyPath: volanteComRotacaoInicial
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4131573725740426714, guid: 72253bb5b78b1164a9da18130b02725c, type: 3}
@@ -13108,7 +13112,7 @@ PrefabInstance:
       objectReference: {fileID: 644494311}
     - target: {fileID: 2316974659678934490, guid: 003df1a387e314e4396886e7e5b1e3b5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 2316974659678934490, guid: 003df1a387e314e4396886e7e5b1e3b5, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13116,7 +13120,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2316974659678934490, guid: 003df1a387e314e4396886e7e5b1e3b5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -20
+      value: -24
       objectReference: {fileID: 0}
     - target: {fileID: 2316974659678934490, guid: 003df1a387e314e4396886e7e5b1e3b5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -13170,6 +13174,10 @@ PrefabInstance:
       propertyPath: spawnerCarroSelecionado
       value: 
       objectReference: {fileID: 2087842327}
+    - target: {fileID: 7163475827671611238, guid: 003df1a387e314e4396886e7e5b1e3b5, type: 3}
+      propertyPath: volanteComRotacaoInicial
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13201,7 +13209,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 109025121006516793, guid: 5a722d2f0b8f25a45990a49177a7a5ba, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 109025121006516793, guid: 5a722d2f0b8f25a45990a49177a7a5ba, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13209,7 +13217,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 109025121006516793, guid: 5a722d2f0b8f25a45990a49177a7a5ba, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -20
+      value: -24
       objectReference: {fileID: 0}
     - target: {fileID: 109025121006516793, guid: 5a722d2f0b8f25a45990a49177a7a5ba, type: 3}
       propertyPath: m_LocalRotation.w
