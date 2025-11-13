@@ -9,8 +9,10 @@ public class VerificarCarroNaVaga : MonoBehaviour
     public CarroMotor carroMotor;
     public CarroFreioMao carroFreioMao;
     public Cronometro cronometro;
+    public Notificacao notificacao;
 
     private bool _carroEstaDentroDaVagaTrigger = false;
+    private bool _carroEstacionadoCorretamente = false;
     private float _velocidadeParadaThreshold = 0.5f;
 
     private void OnTriggerEnter(Collider other)
@@ -27,10 +29,14 @@ public class VerificarCarroNaVaga : MonoBehaviour
 
     private void Update()
     {
+        if (_carroEstacionadoCorretamente)
+            return;
+
         if (CarroEstacionadoCorretamente())
         {
+            _carroEstacionadoCorretamente = true;
             cronometro.PararCronometro();
-            Debug.Log("✅ Carro estacionado corretamente na vaga!");
+            notificacao.MostrarNotificacaoSucesso("Carro estacionado com sucesso! Volte para o menu clicando no botão PlayStation!");
         }
     }
 

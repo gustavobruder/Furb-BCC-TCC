@@ -30,17 +30,17 @@ public class CarroMotor : MonoBehaviour
         var carroEmMovimento = rb.linearVelocity.magnitude > _velocidadeParadaThreshold;
         if (carroEmMovimento)
         {
-            notificacao.MostrarNotificacao("O carro deve estar parado para ligar o motor do carro.");
+            notificacao.MostrarNotificacaoAviso("O carro deve estar parado para ligar o motor do carro.");
             return;
         }
         if (!carroCintoSeguranca.CintoDeSegurancaColocado)
         {
-            notificacao.MostrarNotificacao("O cinto de segurança deve estar colocado para ligar o motor do carro.");
+            notificacao.MostrarNotificacaoAviso("O cinto de segurança deve estar colocado para ligar o motor do carro.");
             return;
         }
         if (!carroFreioMao.FreioDeMaoPuxado)
         {
-            notificacao.MostrarNotificacao("O freio de mão deve estar puxado para ligar o motor do carro.");
+            notificacao.MostrarNotificacaoAviso("O freio de mão deve estar puxado para ligar o motor do carro.");
             return;
         }
 
@@ -53,17 +53,17 @@ public class CarroMotor : MonoBehaviour
         var carroEmMovimento = rb.linearVelocity.magnitude > _velocidadeParadaThreshold;
         if (carroEmMovimento)
         {
-            notificacao.MostrarNotificacao("O carro deve estar parado para desligar o motor do carro.");
+            notificacao.MostrarNotificacaoAviso("O carro deve estar parado para desligar o motor do carro.");
             return;
         }
         if (!carroCintoSeguranca.CintoDeSegurancaColocado)
         {
-            notificacao.MostrarNotificacao("O cinto de segurança deve estar colocado para desligar o motor do carro.");
+            notificacao.MostrarNotificacaoAviso("O cinto de segurança deve estar colocado para desligar o motor do carro.");
             return;
         }
         if (!carroFreioMao.FreioDeMaoPuxado)
         {
-            notificacao.MostrarNotificacao("O freio de mão deve estar puxado para desligar o motor do carro.");
+            notificacao.MostrarNotificacaoAviso("O freio de mão deve estar puxado para desligar o motor do carro.");
             return;
         }
 

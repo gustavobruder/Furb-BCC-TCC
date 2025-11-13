@@ -1506,6 +1506,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 128448616}
     - target: {fileID: 6114589301904655260, guid: 003df1a387e314e4396886e7e5b1e3b5, type: 3}
+      propertyPath: notificacao
+      value: 
+      objectReference: {fileID: 1820025561}
+    - target: {fileID: 6114589301904655260, guid: 003df1a387e314e4396886e7e5b1e3b5, type: 3}
       propertyPath: gerenciadorVagas
       value: 
       objectReference: {fileID: 609707544}
@@ -1812,13 +1816,42 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: 3667b1c4d7f532647b9156782c0c80f0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 155896385}
   m_SourcePrefab: {fileID: 100100000, guid: 3667b1c4d7f532647b9156782c0c80f0, type: 3}
 --- !u!4 &155896383 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 3667b1c4d7f532647b9156782c0c80f0, type: 3}
   m_PrefabInstance: {fileID: 155896382}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &155896384 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 3667b1c4d7f532647b9156782c0c80f0, type: 3}
+  m_PrefabInstance: {fileID: 155896382}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &155896385
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155896384}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 7.25, y: 10.4, z: 5.95}
+  m_Center: {x: -0.02, y: 5.2, z: -0.35}
 --- !u!1001 &162245775
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6871,6 +6904,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 644551194}
     - target: {fileID: 2785680032847010591, guid: 5a722d2f0b8f25a45990a49177a7a5ba, type: 3}
+      propertyPath: notificacao
+      value: 
+      objectReference: {fileID: 1820025561}
+    - target: {fileID: 2785680032847010591, guid: 5a722d2f0b8f25a45990a49177a7a5ba, type: 3}
       propertyPath: gerenciadorVagas
       value: 
       objectReference: {fileID: 609707544}
@@ -10827,6 +10864,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1027284792}
     - target: {fileID: 7709674720247990760, guid: 5009a64d750dcf94da0c1a3a67b2f06d, type: 3}
+      propertyPath: notificacao
+      value: 
+      objectReference: {fileID: 1820025561}
+    - target: {fileID: 7709674720247990760, guid: 5009a64d750dcf94da0c1a3a67b2f06d, type: 3}
       propertyPath: gerenciadorVagas
       value: 
       objectReference: {fileID: 609707544}
@@ -13165,6 +13206,10 @@ PrefabInstance:
       propertyPath: cronometro
       value: 
       objectReference: {fileID: 1199315464}
+    - target: {fileID: 3850502340802162483, guid: 6736cd20b373bfa4ea500f6111c8b197, type: 3}
+      propertyPath: notificacao
+      value: 
+      objectReference: {fileID: 1820025561}
     - target: {fileID: 3850502340802162483, guid: 6736cd20b373bfa4ea500f6111c8b197, type: 3}
       propertyPath: gerenciadorVagas
       value: 
@@ -17666,6 +17711,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1644203268}
     - target: {fileID: 4131573725740426714, guid: 72253bb5b78b1164a9da18130b02725c, type: 3}
+      propertyPath: notificacao
+      value: 
+      objectReference: {fileID: 1820025561}
+    - target: {fileID: 4131573725740426714, guid: 72253bb5b78b1164a9da18130b02725c, type: 3}
       propertyPath: gerenciadorVagas
       value: 
       objectReference: {fileID: 609707544}
@@ -19439,8 +19488,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   painelNotificacao: {fileID: 1000535018}
+  imagemNotificacao: {fileID: 1000535020}
   textoNotificacao: {fileID: 1903788808}
-  displayDuration: 3
+  duracaoNotificacao: 3
 --- !u!1 &1825114052
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,7 +18,7 @@ public class CarroMarchas : MonoBehaviour
     {
         if (!embreagemPressionada)
         {
-            notificacao.MostrarNotificacao("Pise na embreagem para trocar de marcha.");
+            notificacao.MostrarNotificacaoAviso("Pise na embreagem para trocar de marcha.");
             return;
         }
 
