@@ -7,6 +7,7 @@ public class CarroFreioMao : MonoBehaviour
     public CarroCintoSeguranca carroCintoSeguranca;
     public CarroMotor carroMotor;
     public CarroRodas carroRodas;
+    public Notificacao notificacao;
     public bool FreioDeMaoPuxado { get; private set; } = true;
 
     private float _velocidadeParadaThreshold = 0.5f;
@@ -17,17 +18,17 @@ public class CarroFreioMao : MonoBehaviour
         var carroEmMovimento = rb.linearVelocity.magnitude > _velocidadeParadaThreshold;
         if (carroEmMovimento)
         {
-            Debug.Log($"O carro deve estar parado para {(FreioDeMaoPuxado ? "abaixar" : "puxar")} o freio de mão.");
+            notificacao.MostrarNotificacao($"O carro deve estar parado para {(FreioDeMaoPuxado ? "abaixar" : "puxar")} o freio de mão.");
             return;
         }
         if (!carroCintoSeguranca.CintoDeSegurancaColocado)
         {
-            Debug.Log($"O cinto de segurança deve estar colocado para {(FreioDeMaoPuxado ? "abaixar" : "puxar")} o freio de mão.");
+            notificacao.MostrarNotificacao($"O cinto de segurança deve estar colocado para {(FreioDeMaoPuxado ? "abaixar" : "puxar")} o freio de mão.");
             return;
         }
         if (!carroMotor.MotorLigado)
         {
-            Debug.Log($"O motor do carro deve estar ligado para {(FreioDeMaoPuxado ? "abaixar" : "puxar")} o freio de mão.");
+            notificacao.MostrarNotificacao($"O motor do carro deve estar ligado para {(FreioDeMaoPuxado ? "abaixar" : "puxar")} o freio de mão.");
             return;
         }
 

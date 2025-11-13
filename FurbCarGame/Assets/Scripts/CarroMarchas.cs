@@ -4,6 +4,7 @@ using UnityEngine;
 public class CarroMarchas : MonoBehaviour
 {
     [Header("Marchas")]
+    public Notificacao notificacao;
     public Marcha MarchaAtual { get; private set; } = Marcha.N;
     public float[] RelacaoForcasMarchas { get; private set; } = { -2.9f, 0f, 3.6f, 2.2f, 1.5f, 1.0f, 0.8f };
 
@@ -17,7 +18,7 @@ public class CarroMarchas : MonoBehaviour
     {
         if (!embreagemPressionada)
         {
-            Debug.Log("Pise na embreagem para trocar de marcha.");
+            notificacao.MostrarNotificacao("Pise na embreagem para trocar de marcha.");
             return;
         }
 

@@ -10,8 +10,6 @@ public class ContadorColisoes : MonoBehaviour
     {
         _quantidadeColisoes++;
 
-        Debug.Log($"Colisão detectada com {collision.gameObject.name}. Total: {_quantidadeColisoes}");
-
         DefinirTextoColisoes();
     }
 
