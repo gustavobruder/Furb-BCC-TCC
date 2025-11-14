@@ -100,8 +100,7 @@ public class CarroJogador : MonoBehaviour
         if (BtnPressionado(logiState, INDICE_BTN_CAMERA)) carroCameras.AlternarCamera();
         if (BtnPressionado(logiState, INDICE_BTN_PLAYSTATION)) SceneManager.LoadSceneAsync("MenuPrincipal");
 
-        // POV (olhar)
-        HandlePOV(logiState.rgdwPOV[0]);
+        carroCameras.ControlarPov(logiState.rgdwPOV[0]);
 
         // Física e motor
         UpdateEngineAndDrive(throttle, brake, clutchFullyPressed);
@@ -161,40 +160,5 @@ public class CarroJogador : MonoBehaviour
         var torque = throttle * _torqueMotor * gearRatio * _direcaoFinal;
 
         carroRodas.AplicarTorqueMotor(torque);
-    }
-
-    // ---------------------------
-    // POV look handling
-    // ---------------------------
-    private Quaternion originalCameraLocalRotFirst;
-    private Quaternion originalCameraLocalRotThird;
-    private float povLookAngle = 20f;
-
-    private void HandlePOV(uint pov)
-    {
-        Vector3 eulerOffset = Vector3.zero;
-        switch (pov)
-        {
-            case 0: eulerOffset = new Vector3(-povLookAngle, 0f, 0f); break;
-            case 9000: eulerOffset = new Vector3(0f, povLookAngle, 0f); break;
-            case 18000: eulerOffset = new Vector3(povLookAngle, 0f, 0f); break;
-            case 27000: eulerOffset = new Vector3(0f, -povLookAngle, 0f); break;
-            default: eulerOffset = Vector3.zero; break;
-        }
-
-        // todo: ajustar
-        // Camera activeCam = cameraEstaEmPrimeiraPessoa ? cameraPrimeiraPessoa : cameraTerceiraPessoa;
-        // if (activeCam == null) return;
-        //
-        // if (originalCameraLocalRotFirst == Quaternion.identity && cameraPrimeiraPessoa != null)
-        //     originalCameraLocalRotFirst = cameraPrimeiraPessoa.transform.localRotation;
-        // if (originalCameraLocalRotThird == Quaternion.identity && cameraTerceiraPessoa != null)
-        //     originalCameraLocalRotThird = cameraTerceiraPessoa.transform.localRotation;
-        //
-        // Quaternion target = Quaternion.Euler(eulerOffset);
-        // if (cameraEstaEmPrimeiraPessoa && cameraPrimeiraPessoa != null)
-        //     cameraPrimeiraPessoa.transform.localRotation = originalCameraLocalRotFirst * target;
-        // if (!cameraEstaEmPrimeiraPessoa && cameraTerceiraPessoa != null)
-        //     cameraTerceiraPessoa.transform.localRotation = originalCameraLocalRotThird * target;
     }
 }
