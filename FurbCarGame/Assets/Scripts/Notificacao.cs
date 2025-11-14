@@ -10,8 +10,8 @@ public class Notificacao : MonoBehaviour
     public TextMeshProUGUI textoNotificacao;
     public float duracaoNotificacao = 3f;
 
-    private Color _corPainelNotificacaoAviso = new Color(0f, 0f, 0f, 160f);
-    private Color _corPainelNotificacaoSucesso = new Color(0.3019608f, 1f, 0.6784314f, 160f);
+    private Color _corPainelNotificacaoAviso = new Color(0f, 0f, 0f, 0.627451f);
+    private Color _corPainelNotificacaoSucesso = new Color(0.3019608f, 1f, 0.6784314f, 0.627451f);
     private Color _corTextoNotificacaoAviso = new Color(1f, 1f, 1f, 255f);
     private Color _corTextoNotificacaoSucesso = new Color(0f, 0f, 0f, 255f);
 
