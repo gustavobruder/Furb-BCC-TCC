@@ -71,8 +71,7 @@ public class CarroJogador : MonoBehaviour
         if (LogitechGSDK.LogiUpdate() && LogitechGSDK.LogiIsConnected(0))
         {
             var logiState = LogitechGSDK.LogiGetStateUnity(0);
-            ProcessInput(logiState);
-            carroRodas.AtualizarRodas();
+            ProcessarEntradasVolantePedais(logiState);
         }
         else if (!LogitechGSDK.LogiIsConnected(0))
         {
@@ -80,7 +79,7 @@ public class CarroJogador : MonoBehaviour
         }
     }
 
-    private void ProcessInput(LogitechGSDK.DIJOYSTATE2ENGINES logiState)
+    private void ProcessarEntradasVolantePedais(LogitechGSDK.DIJOYSTATE2ENGINES logiState)
     {
         _volante = NormalizarVolante(logiState.lX);
         _embreagem = NormalizarPedal(logiState.rglSlider[0]);
@@ -89,9 +88,32 @@ public class CarroJogador : MonoBehaviour
 
         var embreagemPressionada = _embreagem >= _embreagemThreshold;
 
-        carroVolante.AtualizarVolante(_volante);
-        carroRodas.AplicarDirecaoVolante(_volante);
+        ProcessarBotoesVolante(logiState, embreagemPressionada);
 
+        AtualizarFisicaMotorCarro(embreagemPressionada);
+
+        AplicarEfeitosVolante();
+
+        carroVolante.AtualizarVolante(_volante);
+
+        carroRodas.AplicarDirecaoVolante(_volante);
+        carroRodas.AtualizarRodas();
+
+        carroCameras.ControlarPov(logiState.rgdwPOV[0]);
+    }
+
+    private static float NormalizarVolante(int volante)
+    {
+        return Mathf.Clamp(volante / 32767f, -1f, 1f);
+    }
+
+    private static float NormalizarPedal(float pedal)
+    {
+        return (32767f - pedal) / 65535f;
+    }
+
+    private void ProcessarBotoesVolante(LogitechGSDK.DIJOYSTATE2ENGINES logiState, bool embreagemPressionada)
+    {
         if (BtnPressionado(logiState, INDICE_BTN_CINTO_DE_SEGURANCA)) carroCintoSeguranca.AlternarCintoDeSeguranca();
         if (BtnPressionado(logiState, INDICE_BTN_MOTOR)) carroMotor.AlternarMotor();
         if (BtnPressionado(logiState, INDICE_BTN_FREIO_DE_MAO_BAIXO)) carroFreioMao.AlternarFreioDeMao(false);
@@ -110,22 +132,6 @@ public class CarroJogador : MonoBehaviour
             _estradaEscorregadiaHabilitada = !_estradaEscorregadiaHabilitada;
             notificacao.MostrarNotificacaoAviso($"Modo estrada escorregadia está {(_estradaEscorregadiaHabilitada ? "habilitado" : "desabilitado")}");
         }
-
-        carroCameras.ControlarPov(logiState.rgdwPOV[0]);
-
-        AplicarEfeitosVolante();
-
-        AtualizarFisicaMotorCarro(embreagemPressionada);
-    }
-
-    private static float NormalizarVolante(int volante)
-    {
-        return Mathf.Clamp(volante / 32767f, -1f, 1f);
-    }
-
-    private static float NormalizarPedal(float pedal)
-    {
-        return (32767f - pedal) / 65535f;
     }
 
     private bool BtnPressionado(LogitechGSDK.DIJOYSTATE2ENGINES logiState, int indiceBtn)
