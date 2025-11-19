@@ -15,11 +15,19 @@ public class Notificacao : MonoBehaviour
     private Color _corTextoNotificacaoAviso = new Color(1f, 1f, 1f, 255f);
     private Color _corTextoNotificacaoSucesso = new Color(0f, 0f, 0f, 255f);
 
+    private CanvasGroup _canvasGroup;
     private Coroutine _coroutineAtiva;
 
     private void Awake()
     {
         painelNotificacao.SetActive(false);
+    }
+
+    private void Start()
+    {
+        _canvasGroup = painelNotificacao.GetComponent<CanvasGroup>();
+        if (_canvasGroup == null)
+            _canvasGroup = painelNotificacao.AddComponent<CanvasGroup>();
     }
 
     public void MostrarNotificacaoAviso(string mensagem)
@@ -47,25 +55,21 @@ public class Notificacao : MonoBehaviour
         textoNotificacao.color = corTexto;
         painelNotificacao.SetActive(true);
 
-        var canvasGroup = painelNotificacao.GetComponent<CanvasGroup>();
-        if (canvasGroup == null)
-            canvasGroup = painelNotificacao.AddComponent<CanvasGroup>();
-
         for (float t = 0; t < 0.3f; t += Time.deltaTime)
         {
-            canvasGroup.alpha = Mathf.Lerp(0, 1, t / 0.3f);
+            _canvasGroup.alpha = Mathf.Lerp(0, 1, t / 0.3f);
             yield return null;
         }
-        canvasGroup.alpha = 1;
+        _canvasGroup.alpha = 1;
 
         yield return new WaitForSeconds(duracaoNotificacao);
 
         for (float t = 0; t < 0.3f; t += Time.deltaTime)
         {
-            canvasGroup.alpha = Mathf.Lerp(1, 0, t / 0.3f);
+            _canvasGroup.alpha = Mathf.Lerp(1, 0, t / 0.3f);
             yield return null;
         }
-        canvasGroup.alpha = 0;
+        _canvasGroup.alpha = 0;
 
         painelNotificacao.SetActive(false);
         _coroutineAtiva = null;
