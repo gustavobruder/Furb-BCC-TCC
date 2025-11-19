@@ -24,7 +24,7 @@ public class CarroVolante : MonoBehaviour
         else
         {
             var rotacaoZ = anguloVolante * anguloMaxVolante;
-            volante.localRotation = Quaternion.Euler(0f, 0f, rotacaoZ);
+            volante.localRotation = Quaternion.Euler(0f, 0f, -rotacaoZ);
         }
     }
 }
