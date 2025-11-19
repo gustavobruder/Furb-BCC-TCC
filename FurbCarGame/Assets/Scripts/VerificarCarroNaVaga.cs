@@ -71,31 +71,12 @@ public class VerificarCarroNaVaga : MonoBehaviour
     private bool PontosDoCarroEstaoTodosDentroDaVaga()
     {
         var carroBounds = carroCollider.bounds;
-        var min = carroBounds.min;
-        var max = carroBounds.max;
+        var vagaBounds = gerenciadorVagas.BoxColliderVagaEstacionamentoSorteada.bounds;
 
-        var pontos = new Vector3[8];
-        pontos[0] = new Vector3(min.x, min.y, min.z);
-        pontos[1] = new Vector3(max.x, min.y, min.z);
-        pontos[2] = new Vector3(min.x, max.y, min.z);
-        pontos[3] = new Vector3(max.x, max.y, min.z);
-        pontos[4] = new Vector3(min.x, min.y, max.z);
-        pontos[5] = new Vector3(max.x, min.y, max.z);
-        pontos[6] = new Vector3(min.x, max.y, max.z);
-        pontos[7] = new Vector3(max.x, max.y, max.z);
-
-        foreach (var ponto in pontos)
-        {
-            if (!PontoEstaDentroDaVaga(ponto))
-                return false;
-        }
-
-        return true;
-    }
-
-    private bool PontoEstaDentroDaVaga(Vector3 ponto)
-    {
-        var pontoMaisProximo = gerenciadorVagas.BoxColliderVagaEstacionamentoSorteada.ClosestPoint(ponto);
-        return Vector3.Distance(ponto, pontoMaisProximo) < 0.001f;
+        var dentroX = carroBounds.min.x >= vagaBounds.min.x && carroBounds.max.x <= vagaBounds.max.x;
+        var dentroY = carroBounds.min.y >= vagaBounds.min.y && carroBounds.max.y <= vagaBounds.max.y;
+        var dentroZ = carroBounds.min.z >= vagaBounds.min.z && carroBounds.max.z <= vagaBounds.max.z;
+        
+        return dentroX && dentroY && dentroZ;
     }
 }
