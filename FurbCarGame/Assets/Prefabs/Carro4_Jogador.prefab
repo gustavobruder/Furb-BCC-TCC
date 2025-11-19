@@ -113,7 +113,7 @@ Transform:
   m_GameObject: {fileID: 1401234539074752665}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.77, y: 0.45, z: -1.34}
+  m_LocalPosition: {x: 0.77, y: 0.3, z: -1.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -127,7 +127,7 @@ WheelCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1401234539074752665}
   serializedVersion: 2
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.15, z: 0}
   m_Radius: 0.36
   m_SuspensionSpring:
     spring: 35000
@@ -810,7 +810,7 @@ Transform:
   m_GameObject: {fileID: 4480071304477823232}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.77, y: 0.45, z: 1.34}
+  m_LocalPosition: {x: -0.77, y: 0.3, z: 1.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -824,7 +824,7 @@ WheelCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4480071304477823232}
   serializedVersion: 2
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.15, z: 0}
   m_Radius: 0.36
   m_SuspensionSpring:
     spring: 35000
@@ -983,6 +983,7 @@ MonoBehaviour:
   carroVolante: {fileID: 1542200631761002863}
   carroMarchas: {fileID: 5966146513558193957}
   carroCameras: {fileID: 4660188418509059534}
+  notificacao: {fileID: 0}
 --- !u!114 &4685398863036035008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -998,6 +999,7 @@ MonoBehaviour:
   rb: {fileID: 3348355832310993430}
   carroFreioMao: {fileID: 8009696160951381042}
   carroMotor: {fileID: 4327003729812807433}
+  notificacao: {fileID: 0}
 --- !u!114 &4327003729812807433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1013,6 +1015,7 @@ MonoBehaviour:
   rb: {fileID: 3348355832310993430}
   carroCintoSeguranca: {fileID: 4685398863036035008}
   carroFreioMao: {fileID: 8009696160951381042}
+  notificacao: {fileID: 0}
 --- !u!114 &8009696160951381042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1029,6 +1032,7 @@ MonoBehaviour:
   carroCintoSeguranca: {fileID: 4685398863036035008}
   carroMotor: {fileID: 4327003729812807433}
   carroRodas: {fileID: 8706234254312438249}
+  notificacao: {fileID: 0}
 --- !u!114 &8706234254312438249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1076,6 +1080,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1143eedeee3497581195cf7e76438d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  notificacao: {fileID: 0}
 --- !u!114 &4660188418509059534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1249,6 +1254,7 @@ MonoBehaviour:
   carroMotor: {fileID: 4327003729812807433}
   carroFreioMao: {fileID: 8009696160951381042}
   cronometro: {fileID: 4611430804122034886}
+  notificacao: {fileID: 0}
 --- !u!1 &5704034266371771580
 GameObject:
   m_ObjectHideFlags: 0
@@ -1361,7 +1367,7 @@ Transform:
   m_GameObject: {fileID: 5953757818826833386}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.77, y: 0.45, z: 1.34}
+  m_LocalPosition: {x: 0.77, y: 0.3, z: 1.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1375,7 +1381,7 @@ WheelCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5953757818826833386}
   serializedVersion: 2
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.15, z: 0}
   m_Radius: 0.36
   m_SuspensionSpring:
     spring: 35000
@@ -1655,7 +1661,7 @@ Transform:
   m_GameObject: {fileID: 7719889198859440558}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.77, y: 0.45, z: -1.34}
+  m_LocalPosition: {x: -0.77, y: 0.3, z: -1.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1669,7 +1675,7 @@ WheelCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7719889198859440558}
   serializedVersion: 2
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.15, z: 0}
   m_Radius: 0.36
   m_SuspensionSpring:
     spring: 35000

@@ -475,6 +475,7 @@ MonoBehaviour:
   carroMotor: {fileID: 7624990445608011234}
   carroFreioMao: {fileID: 5391979324967537307}
   cronometro: {fileID: 2136737351653457361}
+  notificacao: {fileID: 0}
 --- !u!1 &4207839415103360523
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,6 +772,7 @@ MonoBehaviour:
   carroVolante: {fileID: 4546748790655679109}
   carroMarchas: {fileID: 6363726420736204839}
   carroCameras: {fileID: 7353401329855068698}
+  notificacao: {fileID: 0}
 --- !u!114 &536054554126125352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -786,6 +788,7 @@ MonoBehaviour:
   rb: {fileID: 2613246741769982064}
   carroFreioMao: {fileID: 5391979324967537307}
   carroMotor: {fileID: 7624990445608011234}
+  notificacao: {fileID: 0}
 --- !u!114 &7624990445608011234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -801,6 +804,7 @@ MonoBehaviour:
   rb: {fileID: 2613246741769982064}
   carroCintoSeguranca: {fileID: 536054554126125352}
   carroFreioMao: {fileID: 5391979324967537307}
+  notificacao: {fileID: 0}
 --- !u!114 &5391979324967537307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -817,6 +821,7 @@ MonoBehaviour:
   carroCintoSeguranca: {fileID: 536054554126125352}
   carroMotor: {fileID: 7624990445608011234}
   carroRodas: {fileID: 3350785105372375275}
+  notificacao: {fileID: 0}
 --- !u!114 &3350785105372375275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -864,6 +869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1143eedeee3497581195cf7e76438d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  notificacao: {fileID: 0}
 --- !u!114 &7353401329855068698
 MonoBehaviour:
   m_ObjectHideFlags: 0
