@@ -30,7 +30,7 @@ public class Velocimetro : MonoBehaviour
 
     private void DefinirTextoRpm()
     {
-        textoRpm.text = ((int)_carroMotor.RpmMotor) + " RPM";
+        textoRpm.text = Mathf.RoundToInt(_carroMotor.RpmMotor) + " RPM";
     }
 
     private void AtualizarVelocidade()

@@ -3,7 +3,6 @@ using UnityEngine;
 public class SpawnerCarroSelecionado : MonoBehaviour
 {
     public GameObject[] carrosDisponiveis;
-    public Vector3 posicaoInicialCarro = new Vector3(-8f, 0f, -20f);
     public GameObject CarrosSelecionado { get; private set; }
 
     private void Awake()
