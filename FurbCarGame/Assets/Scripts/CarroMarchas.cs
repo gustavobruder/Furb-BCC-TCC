@@ -6,7 +6,6 @@ public class CarroMarchas : MonoBehaviour
     [Header("Marchas")]
     public Notificacao notificacao;
     public Marcha MarchaAtual { get; private set; } = Marcha.N;
-    public float[] RelacaoForcasMarchas { get; private set; } = { -2.9f, 0f, 3.6f, 2.2f, 1.5f, 1.0f, 0.8f };
 
     private int _quantidadeMarchas = Enum.GetNames(typeof(Marcha)).Length;
 
