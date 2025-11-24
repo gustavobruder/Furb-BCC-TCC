@@ -14,12 +14,55 @@ public class CarroRodas : MonoBehaviour
     public Transform rodaMeshRL;
     public Transform rodaMeshRR;
 
-    private float _anguloMaxDirecao = 35f;
+    private float _l;
+    private float _w;
+    private float _raioBase = 6f;
+    private float _anguloMaxDirecao = 40f;
+
+    private void Start()
+    {
+        var distanciaEntreEixos = Mathf.Abs(
+            rodaColliderFL.transform.localPosition.z - rodaColliderRL.transform.localPosition.z
+        );
+
+        var larguraDianteira = Mathf.Abs(
+            rodaColliderFL.transform.localPosition.x - rodaColliderFR.transform.localPosition.x
+        );
+
+        _l = distanciaEntreEixos;
+        _w = larguraDianteira;
+    }
 
     public void AplicarDirecaoVolante(float anguloDirecao)
     {
-        if (rodaColliderFL) rodaColliderFL.steerAngle = anguloDirecao * _anguloMaxDirecao;
-        if (rodaColliderFR) rodaColliderFR.steerAngle = anguloDirecao * _anguloMaxDirecao;
+        if (anguloDirecao == 0)
+        {
+            if (rodaColliderFL) rodaColliderFL.steerAngle = 0;
+            if (rodaColliderFR) rodaColliderFR.steerAngle = 0;
+            return;
+        }
+
+        // geometria de Ackermann
+        var r = _raioBase / Mathf.Abs(anguloDirecao);
+
+        var anguloInterno = Mathf.Rad2Deg * Mathf.Atan(_l / (r - (_w / 2f)));
+        var anguloExterno = Mathf.Rad2Deg * Mathf.Atan(_l / (r + (_w / 2f)));
+
+        anguloInterno = Mathf.Clamp(anguloInterno, -_anguloMaxDirecao, _anguloMaxDirecao);
+        anguloExterno = Mathf.Clamp(anguloExterno, -_anguloMaxDirecao, _anguloMaxDirecao);
+
+        var virandoParaDireita = anguloDirecao > 0f;
+
+        if (virandoParaDireita)
+        {
+            if (rodaColliderFL) rodaColliderFL.steerAngle = anguloExterno;
+            if (rodaColliderFR) rodaColliderFR.steerAngle = anguloInterno;
+        }
+        else
+        {
+            if (rodaColliderFL) rodaColliderFL.steerAngle = -anguloInterno;
+            if (rodaColliderFR) rodaColliderFR.steerAngle = -anguloExterno;
+        }
     }
 
     public void AplicarTorqueMotor(float torqueMotor)
