@@ -1529,10 +1529,17 @@ PrefabInstance:
       propertyPath: notificacao
       value: 
       objectReference: {fileID: 1820025561}
+    - target: {fileID: 8970813031556262147, guid: 003df1a387e314e4396886e7e5b1e3b5, type: 3}
+      propertyPath: carroFisicaAutomatica
+      value: 
+      objectReference: {fileID: 128448618}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5424825873501208677, guid: 003df1a387e314e4396886e7e5b1e3b5, type: 3}
+      insertIndex: 5
+      addedObject: {fileID: 128448618}
   m_SourcePrefab: {fileID: 100100000, guid: 003df1a387e314e4396886e7e5b1e3b5, type: 3}
 --- !u!114 &128448616 stripped
 MonoBehaviour:
@@ -1550,6 +1557,66 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5424825873501208677, guid: 003df1a387e314e4396886e7e5b1e3b5, type: 3}
   m_PrefabInstance: {fileID: 128448615}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &128448618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128448617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86f709fb394b48a6a3ae78c98fa5e6c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 128448619}
+  carroMotor: {fileID: 128448620}
+  carroMarchas: {fileID: 1658790022}
+  carroRodas: {fileID: 393570031}
+  curvaTorque:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.98748267
+      value: 0.7995279
+      inSlope: -2.1585867
+      outSlope: -2.1585867
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.06749416
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  embreagem: 0
+  freio: 0
+  acelerador: 0
+  trocarMarchasAutomaticamente: 0
+--- !u!54 &128448619 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 6532689564468041172, guid: 003df1a387e314e4396886e7e5b1e3b5, type: 3}
+  m_PrefabInstance: {fileID: 128448615}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &128448620 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6003054165376965038, guid: 003df1a387e314e4396886e7e5b1e3b5, type: 3}
+  m_PrefabInstance: {fileID: 128448615}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128448617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c48a1e5626b4a4ea21959df40068625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &131653990
 GameObject:
   m_ObjectHideFlags: 0
@@ -1727,6 +1794,67 @@ Transform:
   - {fileID: 1833521761}
   m_Father: {fileID: 973822327}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &149375267
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 149375268}
+  - component: {fileID: 149375269}
+  m_Layer: 5
+  m_Name: ModosStatus
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &149375268
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149375267}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 229533262}
+  - {fileID: 1525796083}
+  - {fileID: 421353699}
+  m_Father: {fileID: 1815925747}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0, y: 0.5}
+--- !u!114 &149375269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149375267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b288baf8efd26d249bc73c7eb90fe063, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  estradaBarroImg: {fileID: 229533263}
+  estradaBarroAtivadoSprite: {fileID: 21300000, guid: 6558d3211c1e10e4a9a51da9dfc74980, type: 3}
+  estradaBarroDesativadoSprite: {fileID: 21300000, guid: ec33128e188b7de4c8e869501d10cb53, type: 3}
+  estradaEscorregadiaImg: {fileID: 1525796084}
+  estradaEscorregadiaAtivadoSprite: {fileID: 21300000, guid: 0f21cd32c285a464da4492de4ab70383, type: 3}
+  estradaEscorregadiaDesativadoSprite: {fileID: 21300000, guid: 1bfad79d5895c2f46810a0defd9131dd, type: 3}
+  marchaImg: {fileID: 421353700}
+  marchaManualSprite: {fileID: 21300000, guid: 3e742b0684d459c49ad77fb7e2ff4cb7, type: 3}
+  marchaAutomaticaSprite: {fileID: 21300000, guid: 77e811f09df9ac34388460afc8b16aeb, type: 3}
+  spawnerCarroSelecionado: {fileID: 321762010}
 --- !u!1 &151710278
 GameObject:
   m_ObjectHideFlags: 0
@@ -1856,6 +1984,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 7.25, y: 10.4, z: 5.95}
   m_Center: {x: -0.02, y: 5.2, z: -0.35}
+--- !u!114 &158257186 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7095392288885760499, guid: 5a722d2f0b8f25a45990a49177a7a5ba, type: 3}
+  m_PrefabInstance: {fileID: 644551193}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644551195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1143eedeee3497581195cf7e76438d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &162245775
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1918,6 +2057,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: cc0981408e7c8db4f9f80a57938fd5e3, type: 3}
   m_PrefabInstance: {fileID: 162245775}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &162274906 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8706234254312438249, guid: 72253bb5b78b1164a9da18130b02725c, type: 3}
+  m_PrefabInstance: {fileID: 1644203267}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644203269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faaef65cb98b484fb797c7c09b5bbb9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &168477154
 GameObject:
   m_ObjectHideFlags: 0
@@ -2794,6 +2944,81 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 220487679}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &229533261
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 229533262}
+  - component: {fileID: 229533264}
+  - component: {fileID: 229533263}
+  m_Layer: 5
+  m_Name: ImgModoBarro
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &229533262
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229533261}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 149375268}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 25, y: 75}
+  m_SizeDelta: {x: 150, y: 150}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &229533263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229533261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 6558d3211c1e10e4a9a51da9dfc74980, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &229533264
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229533261}
+  m_CullTransparentMesh: 1
 --- !u!1 &233260361
 GameObject:
   m_ObjectHideFlags: 0
@@ -3475,7 +3700,6 @@ MonoBehaviour:
   - {fileID: 644551195}
   - {fileID: 1644203269}
   - {fileID: 128448617}
-  posicaoInicialCarro: {x: -8, y: 0, z: -20}
 --- !u!4 &321762011
 Transform:
   m_ObjectHideFlags: 0
@@ -4241,6 +4465,17 @@ Transform:
   - {fileID: 220487680}
   m_Father: {fileID: 1855385031}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &368879966 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3350785105372375275, guid: 5009a64d750dcf94da0c1a3a67b2f06d, type: 3}
+  m_PrefabInstance: {fileID: 1027284791}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027284793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faaef65cb98b484fb797c7c09b5bbb9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &379196916
 GameObject:
   m_ObjectHideFlags: 0
@@ -4602,6 +4837,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 390872502}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &393570031 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 512043971549145187, guid: 003df1a387e314e4396886e7e5b1e3b5, type: 3}
+  m_PrefabInstance: {fileID: 128448615}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128448617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faaef65cb98b484fb797c7c09b5bbb9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &397545965
 GameObject:
   m_ObjectHideFlags: 0
@@ -5050,6 +5296,81 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!1 &421353698
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 421353699}
+  - component: {fileID: 421353701}
+  - component: {fileID: 421353700}
+  m_Layer: 5
+  m_Name: ImgModoMarcha
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &421353699
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421353698}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 149375268}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 25, y: -75}
+  m_SizeDelta: {x: 180, y: 180}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &421353700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421353698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 3e742b0684d459c49ad77fb7e2ff4cb7, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &421353701
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421353698}
+  m_CullTransparentMesh: 1
 --- !u!1 &426723236
 GameObject:
   m_ObjectHideFlags: 0
@@ -6353,6 +6674,17 @@ Transform:
   - {fileID: 469441189}
   m_Father: {fileID: 968657160}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &603647360 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7789975053350232076, guid: 5a722d2f0b8f25a45990a49177a7a5ba, type: 3}
+  m_PrefabInstance: {fileID: 644551193}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644551195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faaef65cb98b484fb797c7c09b5bbb9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &604128468
 GameObject:
   m_ObjectHideFlags: 0
@@ -6899,6 +7231,10 @@ PrefabInstance:
       propertyPath: notificacao
       value: 
       objectReference: {fileID: 1820025561}
+    - target: {fileID: 194881900209743465, guid: 5a722d2f0b8f25a45990a49177a7a5ba, type: 3}
+      propertyPath: carroFisicaAutomatica
+      value: 
+      objectReference: {fileID: 644551196}
     - target: {fileID: 898196386037027533, guid: 5a722d2f0b8f25a45990a49177a7a5ba, type: 3}
       propertyPath: m_Name
       value: Carro3_Jogador
@@ -6950,7 +7286,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 898196386037027533, guid: 5a722d2f0b8f25a45990a49177a7a5ba, type: 3}
+      insertIndex: 5
+      addedObject: {fileID: 644551196}
   m_SourcePrefab: {fileID: 100100000, guid: 5a722d2f0b8f25a45990a49177a7a5ba, type: 3}
 --- !u!114 &644551194 stripped
 MonoBehaviour:
@@ -6968,6 +7307,66 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 898196386037027533, guid: 5a722d2f0b8f25a45990a49177a7a5ba, type: 3}
   m_PrefabInstance: {fileID: 644551193}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &644551196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644551195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86f709fb394b48a6a3ae78c98fa5e6c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 644551197}
+  carroMotor: {fileID: 644551198}
+  carroMarchas: {fileID: 158257186}
+  carroRodas: {fileID: 603647360}
+  curvaTorque:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.98748267
+      value: 0.7995279
+      inSlope: -2.1585867
+      outSlope: -2.1585867
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.06749416
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  embreagem: 0
+  freio: 0
+  acelerador: 0
+  trocarMarchasAutomaticamente: 0
+--- !u!54 &644551197 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 3254431404640731084, guid: 5a722d2f0b8f25a45990a49177a7a5ba, type: 3}
+  m_PrefabInstance: {fileID: 644551193}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &644551198 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9169428753022631857, guid: 5a722d2f0b8f25a45990a49177a7a5ba, type: 3}
+  m_PrefabInstance: {fileID: 644551193}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644551195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c48a1e5626b4a4ea21959df40068625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &652882123
 GameObject:
   m_ObjectHideFlags: 0
@@ -10795,6 +11194,10 @@ PrefabInstance:
       propertyPath: notificacao
       value: 
       objectReference: {fileID: 1820025561}
+    - target: {fileID: 213550906485287057, guid: 5009a64d750dcf94da0c1a3a67b2f06d, type: 3}
+      propertyPath: carroFisicaAutomatica
+      value: 
+      objectReference: {fileID: 1027284794}
     - target: {fileID: 536054554126125352, guid: 5009a64d750dcf94da0c1a3a67b2f06d, type: 3}
       propertyPath: notificacao
       value: 
@@ -10890,7 +11293,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4612753859966588494, guid: 5009a64d750dcf94da0c1a3a67b2f06d, type: 3}
+      insertIndex: 5
+      addedObject: {fileID: 1027284794}
   m_SourcePrefab: {fileID: 100100000, guid: 5009a64d750dcf94da0c1a3a67b2f06d, type: 3}
 --- !u!114 &1027284792 stripped
 MonoBehaviour:
@@ -10908,6 +11314,66 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4612753859966588494, guid: 5009a64d750dcf94da0c1a3a67b2f06d, type: 3}
   m_PrefabInstance: {fileID: 1027284791}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1027284794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027284793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86f709fb394b48a6a3ae78c98fa5e6c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 1027284795}
+  carroMotor: {fileID: 1027284796}
+  carroMarchas: {fileID: 1667686233}
+  carroRodas: {fileID: 368879966}
+  curvaTorque:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.98748267
+      value: 0.7995279
+      inSlope: -2.1585867
+      outSlope: -2.1585867
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.06749416
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  embreagem: 0
+  freio: 0
+  acelerador: 0
+  trocarMarchasAutomaticamente: 0
+--- !u!54 &1027284795 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 2613246741769982064, guid: 5009a64d750dcf94da0c1a3a67b2f06d, type: 3}
+  m_PrefabInstance: {fileID: 1027284791}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1027284796 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7624990445608011234, guid: 5009a64d750dcf94da0c1a3a67b2f06d, type: 3}
+  m_PrefabInstance: {fileID: 1027284791}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027284793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c48a1e5626b4a4ea21959df40068625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1028211393
 GameObject:
   m_ObjectHideFlags: 0
@@ -13238,6 +13704,10 @@ PrefabInstance:
       propertyPath: notificacao
       value: 
       objectReference: {fileID: 1820025561}
+    - target: {fileID: 4168892422805127877, guid: 6736cd20b373bfa4ea500f6111c8b197, type: 3}
+      propertyPath: carroFisicaAutomatica
+      value: 
+      objectReference: {fileID: 1199315466}
     - target: {fileID: 4489746464881060151, guid: 6736cd20b373bfa4ea500f6111c8b197, type: 3}
       propertyPath: m_Name
       value: Carro2_Jogador
@@ -13261,7 +13731,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4489746464881060151, guid: 6736cd20b373bfa4ea500f6111c8b197, type: 3}
+      insertIndex: 5
+      addedObject: {fileID: 1199315466}
   m_SourcePrefab: {fileID: 100100000, guid: 6736cd20b373bfa4ea500f6111c8b197, type: 3}
 --- !u!114 &1199315464 stripped
 MonoBehaviour:
@@ -13279,6 +13752,66 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4489746464881060151, guid: 6736cd20b373bfa4ea500f6111c8b197, type: 3}
   m_PrefabInstance: {fileID: 1199315463}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1199315466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199315465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86f709fb394b48a6a3ae78c98fa5e6c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 1199315467}
+  carroMotor: {fileID: 1199315468}
+  carroMarchas: {fileID: 1225354788}
+  carroRodas: {fileID: 1414688293}
+  curvaTorque:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.98748267
+      value: 0.7995279
+      inSlope: -2.1585867
+      outSlope: -2.1585867
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.06749416
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  embreagem: 0
+  freio: 0
+  acelerador: 0
+  trocarMarchasAutomaticamente: 0
+--- !u!54 &1199315467 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 2029650445924156016, guid: 6736cd20b373bfa4ea500f6111c8b197, type: 3}
+  m_PrefabInstance: {fileID: 1199315463}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1199315468 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2954570142401993260, guid: 6736cd20b373bfa4ea500f6111c8b197, type: 3}
+  m_PrefabInstance: {fileID: 1199315463}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199315465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c48a1e5626b4a4ea21959df40068625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1206278116
 GameObject:
   m_ObjectHideFlags: 0
@@ -13748,6 +14281,17 @@ Transform:
   - {fileID: 168477155}
   m_Father: {fileID: 1780547937}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1225354788 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5360855364172032910, guid: 6736cd20b373bfa4ea500f6111c8b197, type: 3}
+  m_PrefabInstance: {fileID: 1199315463}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199315465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1143eedeee3497581195cf7e76438d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1234865072
 GameObject:
   m_ObjectHideFlags: 0
@@ -15110,6 +15654,17 @@ Transform:
   - {fileID: 155896383}
   m_Father: {fileID: 1709297881}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1414688293 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1825648327348384135, guid: 6736cd20b373bfa4ea500f6111c8b197, type: 3}
+  m_PrefabInstance: {fileID: 1199315463}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199315465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faaef65cb98b484fb797c7c09b5bbb9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1418808249
 GameObject:
   m_ObjectHideFlags: 0
@@ -15504,6 +16059,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1454048175}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1461173949 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5966146513558193957, guid: 72253bb5b78b1164a9da18130b02725c, type: 3}
+  m_PrefabInstance: {fileID: 1644203267}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644203269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1143eedeee3497581195cf7e76438d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1467267215
 GameObject:
   m_ObjectHideFlags: 0
@@ -16410,6 +16976,81 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1523187015}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1525796082
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1525796083}
+  - component: {fileID: 1525796085}
+  - component: {fileID: 1525796084}
+  m_Layer: 5
+  m_Name: ImgModoEscorregadio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1525796083
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525796082}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 149375268}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 25, y: 0}
+  m_SizeDelta: {x: 150, y: 150}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1525796084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525796082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 0f21cd32c285a464da4492de4ab70383, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1525796085
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525796082}
+  m_CullTransparentMesh: 1
 --- !u!1 &1528818836
 GameObject:
   m_ObjectHideFlags: 0
@@ -17722,6 +18363,10 @@ PrefabInstance:
       propertyPath: notificacao
       value: 
       objectReference: {fileID: 1820025561}
+    - target: {fileID: 821663100882328388, guid: 72253bb5b78b1164a9da18130b02725c, type: 3}
+      propertyPath: carroFisicaAutomatica
+      value: 
+      objectReference: {fileID: 1644203270}
     - target: {fileID: 1542200631761002863, guid: 72253bb5b78b1164a9da18130b02725c, type: 3}
       propertyPath: volanteComRotacaoInicial
       value: 0
@@ -17777,7 +18422,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4731104956418901717, guid: 72253bb5b78b1164a9da18130b02725c, type: 3}
+      insertIndex: 5
+      addedObject: {fileID: 1644203270}
   m_SourcePrefab: {fileID: 100100000, guid: 72253bb5b78b1164a9da18130b02725c, type: 3}
 --- !u!114 &1644203268 stripped
 MonoBehaviour:
@@ -17795,6 +18443,66 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4731104956418901717, guid: 72253bb5b78b1164a9da18130b02725c, type: 3}
   m_PrefabInstance: {fileID: 1644203267}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1644203270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644203269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86f709fb394b48a6a3ae78c98fa5e6c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 1644203271}
+  carroMotor: {fileID: 1644203272}
+  carroMarchas: {fileID: 1461173949}
+  carroRodas: {fileID: 162274906}
+  curvaTorque:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.98748267
+      value: 0.7995279
+      inSlope: -2.1585867
+      outSlope: -2.1585867
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.06749416
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  embreagem: 0
+  freio: 0
+  acelerador: 0
+  trocarMarchasAutomaticamente: 0
+--- !u!54 &1644203271 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 3348355832310993430, guid: 72253bb5b78b1164a9da18130b02725c, type: 3}
+  m_PrefabInstance: {fileID: 1644203267}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1644203272 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4327003729812807433, guid: 72253bb5b78b1164a9da18130b02725c, type: 3}
+  m_PrefabInstance: {fileID: 1644203267}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644203269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c48a1e5626b4a4ea21959df40068625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1646246532
 GameObject:
   m_ObjectHideFlags: 0
@@ -17903,6 +18611,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1646246532}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1658790022 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2240966404792349346, guid: 003df1a387e314e4396886e7e5b1e3b5, type: 3}
+  m_PrefabInstance: {fileID: 128448615}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128448617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1143eedeee3497581195cf7e76438d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1667686233 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6363726420736204839, guid: 5009a64d750dcf94da0c1a3a67b2f06d, type: 3}
+  m_PrefabInstance: {fileID: 1027284791}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027284793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1143eedeee3497581195cf7e76438d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1675112458
 GameObject:
   m_ObjectHideFlags: 0
@@ -19449,6 +20179,7 @@ RectTransform:
   - {fileID: 1820025560}
   - {fileID: 1323654283}
   - {fileID: 233260362}
+  - {fileID: 149375268}
   - {fileID: 2087929499}
   - {fileID: 631473905}
   m_Father: {fileID: 0}

@@ -15,18 +15,13 @@ public class CarroJogador : MonoBehaviour
     private float _freio = 0.0f;
     private float _acelerador = 0.0f;
 
-    private float _rpmMotorParado = 800f;
-    private float _rpmMotorMax = 7000f;
-    private float _torqueMotor = 400f;
-    private float _torqueMotorMax = 1500f;
-    private float _direcaoFinal = 3.42f;
-    private float _freioMax = 3000f;
     private float _embreagemThreshold = 0.9f;
     private float _velocidade = 0.0f;
 
     // -------------------------
     // Estado interno
     // -------------------------
+    public CarroFisicaAutomatica carroFisicaAutomatica;
     public CarroCintoSeguranca carroCintoSeguranca;
     public CarroFreioMao carroFreioMao;
     public CarroMotor carroMotor;
@@ -46,13 +41,16 @@ public class CarroJogador : MonoBehaviour
     private const int INDICE_BTN_MARCHA_BAIXO = 5;
     private const int INDICE_BTN_MARCHA_CIMA = 4;
     private const int INDICE_BTN_CAMERA = 6;
-    private const int INDICE_BTN_PLAYSTATION = 24; // btn options = 9
+    private const int INDICE_BTN_SHARE = 8;
+    private const int INDICE_BTN_OPTIONS = 9;
+    private const int INDICE_BTN_PLAYSTATION = 24;
     private const int INDICE_BTN_QUADRADO = 1;
     private const int INDICE_BTN_BOLA = 2;
+    private const int INDICE_BTN_TRIANGULO = 3;
     private bool[] _btnsPressionados = new bool[128];
 
-    private bool _estradaBarroHabilitada = false;
-    private bool _estradaEscorregadiaHabilitada = false;
+    public bool EstradaBarroHabilitada { get; private set; } = false;
+    public bool EstradaEscorregadiaHabilitada { get; private set; } = false;
 
     private void Start()
     {
@@ -86,11 +84,13 @@ public class CarroJogador : MonoBehaviour
         _freio = NormalizarPedal(logiState.lRz);
         _acelerador = NormalizarPedal(logiState.lY);
 
+        carroFisicaAutomatica.embreagem = _embreagem;
+        carroFisicaAutomatica.freio = _freio;
+        carroFisicaAutomatica.acelerador = _acelerador;
+
         var embreagemPressionada = _embreagem >= _embreagemThreshold;
 
         ProcessarBotoesVolante(logiState, embreagemPressionada);
-
-        AtualizarFisicaMotorCarro(embreagemPressionada);
 
         AplicarEfeitosVolante();
 
@@ -121,16 +121,29 @@ public class CarroJogador : MonoBehaviour
         if (BtnPressionado(logiState, INDICE_BTN_MARCHA_BAIXO)) carroMarchas.ReduzirMarcha(embreagemPressionada);
         if (BtnPressionado(logiState, INDICE_BTN_MARCHA_CIMA)) carroMarchas.AumentarMarcha(embreagemPressionada);
         if (BtnPressionado(logiState, INDICE_BTN_CAMERA)) carroCameras.AlternarCamera();
+        if (BtnPressionado(logiState, INDICE_BTN_SHARE))
+        {
+            // todo... procedimento correto para ligar e desligar o carro
+        }
+        if (BtnPressionado(logiState, INDICE_BTN_OPTIONS))
+        {
+            // todo... mapa de controles
+        }
         if (BtnPressionado(logiState, INDICE_BTN_PLAYSTATION)) SceneManager.LoadSceneAsync("MenuPrincipal");
         if (BtnPressionado(logiState, INDICE_BTN_QUADRADO))
         {
-            _estradaBarroHabilitada = !_estradaBarroHabilitada;
-            notificacao.MostrarNotificacaoAviso($"Modo estrada de barro está {(_estradaBarroHabilitada ? "habilitado" : "desabilitado")}");
+            EstradaBarroHabilitada = !EstradaBarroHabilitada;
+            notificacao.MostrarNotificacaoAviso($"Modo estrada de barro está {(EstradaBarroHabilitada ? "habilitado" : "desabilitado")}");
         }
         if (BtnPressionado(logiState, INDICE_BTN_BOLA))
         {
-            _estradaEscorregadiaHabilitada = !_estradaEscorregadiaHabilitada;
-            notificacao.MostrarNotificacaoAviso($"Modo estrada escorregadia está {(_estradaEscorregadiaHabilitada ? "habilitado" : "desabilitado")}");
+            EstradaEscorregadiaHabilitada = !EstradaEscorregadiaHabilitada;
+            notificacao.MostrarNotificacaoAviso($"Modo estrada escorregadia está {(EstradaEscorregadiaHabilitada ? "habilitado" : "desabilitado")}");
+        }
+        if (BtnPressionado(logiState, INDICE_BTN_TRIANGULO))
+        {
+            carroFisicaAutomatica.trocarMarchasAutomaticamente = !carroFisicaAutomatica.trocarMarchasAutomaticamente;
+            notificacao.MostrarNotificacaoAviso($"Modo troca de marchas automaticas está {(carroFisicaAutomatica.trocarMarchasAutomaticamente ? "habilitado" : "desabilitado")}");
         }
     }
 
@@ -149,36 +162,6 @@ public class CarroJogador : MonoBehaviour
         var btnEstaPressionadoAgora = _btnsPressionados[indiceBtn];
 
         return btnNaoEstavaPressionadoAntes && btnEstaPressionadoAgora;
-    }
-
-    private void AtualizarFisicaMotorCarro(bool embreagemPressionada)
-    {
-        var freioAplicado = _freio * _freioMax;
-        carroRodas.AplicarFreioDianteiro(freioAplicado);
-        carroRodas.AplicarFreioTraseiro(carroFreioMao.FreioDeMaoPuxado ? _freioMax : freioAplicado);
-
-        if (carroMotor.MotorLigado)
-        {
-            var rpmAlvo = _rpmMotorParado + _acelerador * (_rpmMotorMax - _rpmMotorParado);
-            carroMotor.AtualizarRpmMotor(Mathf.Lerp(carroMotor.RpmMotor, rpmAlvo, Time.deltaTime * 8f));
-        }
-        else
-        {
-            carroRodas.AplicarTorqueMotor(0f);
-            return;
-        }
-
-        var marchaNeutra = carroMarchas.MarchaAtual == Marcha.N;
-        if (marchaNeutra || embreagemPressionada)
-        {
-            carroRodas.AplicarTorqueMotor(0f);
-            return;
-        }
-
-        var indiceMarchaAtual = (int)carroMarchas.MarchaAtual;
-        var relacaoForcaMarchaAtual = carroMarchas.RelacaoForcasMarchas[indiceMarchaAtual];
-        var torque = _acelerador * _torqueMotor * relacaoForcaMarchaAtual * _direcaoFinal;
-        carroRodas.AplicarTorqueMotor(torque);
     }
 
     private void AplicarEfeitosVolante()
@@ -208,7 +191,7 @@ public class CarroJogador : MonoBehaviour
 
     private void AplicarEfeitoEstradaBarroVolante(float velocidade)
     {
-        if (_estradaBarroHabilitada)
+        if (EstradaBarroHabilitada)
         {
             var forcaEfeito = Mathf.RoundToInt(Mathf.Lerp(25, 75, velocidade));
             LogitechGSDK.LogiPlayDirtRoadEffect(0, forcaEfeito);
@@ -221,7 +204,7 @@ public class CarroJogador : MonoBehaviour
 
     private void AplicarEfeitoEstradaEscorregadiaVolante(float velocidade)
     {
-        if (_estradaEscorregadiaHabilitada)
+        if (EstradaEscorregadiaHabilitada)
         {
             var forcaEfeito = Mathf.RoundToInt(Mathf.Lerp(25, 75, velocidade));
             LogitechGSDK.LogiPlaySlipperyRoadEffect(0, forcaEfeito);
