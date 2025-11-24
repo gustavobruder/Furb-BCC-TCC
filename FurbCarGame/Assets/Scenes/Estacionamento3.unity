@@ -289,7 +289,7 @@ RectTransform:
   m_GameObject: {fileID: 23934567}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1094232136}
@@ -551,6 +551,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 42855498}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &47999500 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3100077698375956622, guid: 5a722d2f0b8f25a45990a49177a7a5ba, type: 3}
+  m_PrefabInstance: {fileID: 1731383175}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731383177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edcb30d43255e034890ff1938e6abe52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &60243001
 GameObject:
   m_ObjectHideFlags: 0
@@ -1535,6 +1546,14 @@ PrefabInstance:
       propertyPath: notificacao
       value: 
       objectReference: {fileID: 2028614707}
+    - target: {fileID: 4168892422805127877, guid: 6736cd20b373bfa4ea500f6111c8b197, type: 3}
+      propertyPath: contadorColisoes
+      value: 
+      objectReference: {fileID: 1752334249}
+    - target: {fileID: 4168892422805127877, guid: 6736cd20b373bfa4ea500f6111c8b197, type: 3}
+      propertyPath: menuMapeamentoBotoes
+      value: 
+      objectReference: {fileID: 2059941797}
     - target: {fileID: 4168892422805127877, guid: 6736cd20b373bfa4ea500f6111c8b197, type: 3}
       propertyPath: carroFisicaAutomatica
       value: 
@@ -8214,6 +8233,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2028614707}
     - target: {fileID: 821663100882328388, guid: 72253bb5b78b1164a9da18130b02725c, type: 3}
+      propertyPath: contadorColisoes
+      value: 
+      objectReference: {fileID: 1028237990}
+    - target: {fileID: 821663100882328388, guid: 72253bb5b78b1164a9da18130b02725c, type: 3}
+      propertyPath: menuMapeamentoBotoes
+      value: 
+      objectReference: {fileID: 2059941797}
+    - target: {fileID: 821663100882328388, guid: 72253bb5b78b1164a9da18130b02725c, type: 3}
       propertyPath: carroFisicaAutomatica
       value: 
       objectReference: {fileID: 741337980}
@@ -10542,6 +10569,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1010196190}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1028237990 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6550420500342926421, guid: 72253bb5b78b1164a9da18130b02725c, type: 3}
+  m_PrefabInstance: {fileID: 741337977}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741337979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edcb30d43255e034890ff1938e6abe52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1030506965
 GameObject:
   m_ObjectHideFlags: 0
@@ -10794,6 +10832,17 @@ Transform:
   - {fileID: 22334910}
   m_Father: {fileID: 556144003}
   m_LocalEulerAnglesHint: {x: 0, y: 31, z: 0}
+--- !u!114 &1036714430 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7146310648976105897, guid: 5009a64d750dcf94da0c1a3a67b2f06d, type: 3}
+  m_PrefabInstance: {fileID: 2097445430}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097445432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edcb30d43255e034890ff1938e6abe52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1045188009
 GameObject:
   m_ObjectHideFlags: 0
@@ -11645,6 +11694,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2028614706}
+  - {fileID: 2059941798}
   - {fileID: 338954589}
   - {fileID: 578255806}
   - {fileID: 1360903741}
@@ -14575,6 +14625,81 @@ MonoBehaviour:
   marchaManualSprite: {fileID: 21300000, guid: 3e742b0684d459c49ad77fb7e2ff4cb7, type: 3}
   marchaAutomaticaSprite: {fileID: 21300000, guid: 77e811f09df9ac34388460afc8b16aeb, type: 3}
   spawnerCarroSelecionado: {fileID: 1415653279}
+--- !u!1 &1384258665
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1384258666}
+  - component: {fileID: 1384258668}
+  - component: {fileID: 1384258667}
+  m_Layer: 5
+  m_Name: MapeamentoBotoesPainel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1384258666
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384258665}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2059941798}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1048, y: 532}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1384258667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384258665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.627451}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1384258668
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384258665}
+  m_CullTransparentMesh: 1
 --- !u!1 &1390215829
 GameObject:
   m_ObjectHideFlags: 0
@@ -15653,6 +15778,78 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1468271429}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1473347813
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1473347814}
+  - component: {fileID: 1473347816}
+  - component: {fileID: 1473347815}
+  m_Layer: 5
+  m_Name: MapeamentoBotoesImg
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1473347814
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473347813}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2059941798}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1024, y: 512}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1473347815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473347813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: a579f854d6c916446b60f96198a3a8fb, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &1473347816
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473347813}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1483893257
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18612,6 +18809,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2028614707}
     - target: {fileID: 194881900209743465, guid: 5a722d2f0b8f25a45990a49177a7a5ba, type: 3}
+      propertyPath: contadorColisoes
+      value: 
+      objectReference: {fileID: 47999500}
+    - target: {fileID: 194881900209743465, guid: 5a722d2f0b8f25a45990a49177a7a5ba, type: 3}
+      propertyPath: menuMapeamentoBotoes
+      value: 
+      objectReference: {fileID: 2059941797}
+    - target: {fileID: 194881900209743465, guid: 5a722d2f0b8f25a45990a49177a7a5ba, type: 3}
       propertyPath: carroFisicaAutomatica
       value: 
       objectReference: {fileID: 1731383178}
@@ -18877,6 +19082,17 @@ Transform:
   - {fileID: 941618000}
   m_Father: {fileID: 1594502464}
   m_LocalEulerAnglesHint: {x: 0, y: -31, z: 0}
+--- !u!114 &1752334249 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8040563542599534640, guid: 6736cd20b373bfa4ea500f6111c8b197, type: 3}
+  m_PrefabInstance: {fileID: 148085346}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148085348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edcb30d43255e034890ff1938e6abe52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1762605565
 GameObject:
   m_ObjectHideFlags: 0
@@ -20374,6 +20590,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2028614707}
     - target: {fileID: 8970813031556262147, guid: 003df1a387e314e4396886e7e5b1e3b5, type: 3}
+      propertyPath: contadorColisoes
+      value: 
+      objectReference: {fileID: 2103833709}
+    - target: {fileID: 8970813031556262147, guid: 003df1a387e314e4396886e7e5b1e3b5, type: 3}
+      propertyPath: menuMapeamentoBotoes
+      value: 
+      objectReference: {fileID: 2059941797}
+    - target: {fileID: 8970813031556262147, guid: 003df1a387e314e4396886e7e5b1e3b5, type: 3}
       propertyPath: carroFisicaAutomatica
       value: 
       objectReference: {fileID: 1923414740}
@@ -21853,6 +22077,43 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2059182755}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2059941797
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2059941798}
+  m_Layer: 5
+  m_Name: MapeamentoBotoes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &2059941798
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2059941797}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1384258666}
+  - {fileID: 1473347814}
+  m_Father: {fileID: 1094232136}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2062612049
 GameObject:
   m_ObjectHideFlags: 0
@@ -22159,6 +22420,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2028614707}
     - target: {fileID: 213550906485287057, guid: 5009a64d750dcf94da0c1a3a67b2f06d, type: 3}
+      propertyPath: contadorColisoes
+      value: 
+      objectReference: {fileID: 1036714430}
+    - target: {fileID: 213550906485287057, guid: 5009a64d750dcf94da0c1a3a67b2f06d, type: 3}
+      propertyPath: menuMapeamentoBotoes
+      value: 
+      objectReference: {fileID: 2059941797}
+    - target: {fileID: 213550906485287057, guid: 5009a64d750dcf94da0c1a3a67b2f06d, type: 3}
       propertyPath: carroFisicaAutomatica
       value: 
       objectReference: {fileID: 2097445433}
@@ -22336,6 +22605,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2c48a1e5626b4a4ea21959df40068625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2103833709 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3885777575594153730, guid: 003df1a387e314e4396886e7e5b1e3b5, type: 3}
+  m_PrefabInstance: {fileID: 1923414737}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923414739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edcb30d43255e034890ff1938e6abe52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2109399837

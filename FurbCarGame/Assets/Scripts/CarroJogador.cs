@@ -30,6 +30,8 @@ public class CarroJogador : MonoBehaviour
     public CarroMarchas carroMarchas;
     public CarroCameras carroCameras;
     public Notificacao notificacao;
+    public ContadorColisoes contadorColisoes;
+    public GameObject menuMapeamentoBotoes;
 
     // -------------------------
     // Estado Logitech
@@ -41,7 +43,6 @@ public class CarroJogador : MonoBehaviour
     private const int INDICE_BTN_MARCHA_BAIXO = 5;
     private const int INDICE_BTN_MARCHA_CIMA = 4;
     private const int INDICE_BTN_CAMERA = 6;
-    private const int INDICE_BTN_SHARE = 8;
     private const int INDICE_BTN_OPTIONS = 9;
     private const int INDICE_BTN_PLAYSTATION = 24;
     private const int INDICE_BTN_QUADRADO = 1;
@@ -121,14 +122,7 @@ public class CarroJogador : MonoBehaviour
         if (BtnPressionado(logiState, INDICE_BTN_MARCHA_BAIXO)) carroMarchas.ReduzirMarcha(embreagemPressionada);
         if (BtnPressionado(logiState, INDICE_BTN_MARCHA_CIMA)) carroMarchas.AumentarMarcha(embreagemPressionada);
         if (BtnPressionado(logiState, INDICE_BTN_CAMERA)) carroCameras.AlternarCamera();
-        if (BtnPressionado(logiState, INDICE_BTN_SHARE))
-        {
-            // todo... procedimento correto para ligar e desligar o carro
-        }
-        if (BtnPressionado(logiState, INDICE_BTN_OPTIONS))
-        {
-            // todo... mapa de controles
-        }
+        if (BtnPressionado(logiState, INDICE_BTN_OPTIONS)) menuMapeamentoBotoes.SetActive(!menuMapeamentoBotoes.activeSelf);
         if (BtnPressionado(logiState, INDICE_BTN_PLAYSTATION)) SceneManager.LoadSceneAsync("MenuPrincipal");
         if (BtnPressionado(logiState, INDICE_BTN_QUADRADO))
         {
@@ -191,14 +185,17 @@ public class CarroJogador : MonoBehaviour
 
     private void AplicarEfeitoEstradaBarroVolante(float velocidade)
     {
-        if (EstradaBarroHabilitada)
+        if (!contadorColisoes.TemColisaoAtiva())
         {
-            var forcaEfeito = Mathf.RoundToInt(Mathf.Lerp(25, 75, velocidade));
-            LogitechGSDK.LogiPlayDirtRoadEffect(0, forcaEfeito);
-        }
-        else
-        {
-            LogitechGSDK.LogiStopDirtRoadEffect(0);
+            if (EstradaBarroHabilitada)
+            {
+                var forcaEfeito = Mathf.RoundToInt(Mathf.Lerp(25, 75, velocidade));
+                LogitechGSDK.LogiPlayDirtRoadEffect(0, forcaEfeito);
+            }
+            else
+            {
+                LogitechGSDK.LogiStopDirtRoadEffect(0);
+            }
         }
     }
 
