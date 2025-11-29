@@ -74,7 +74,7 @@ public class CarroJogador : MonoBehaviour
         }
         else if (!LogitechGSDK.LogiIsConnected(0))
         {
-            Debug.LogWarning("PLEASE PLUG IN A STEERING WHEEL OR A FORCE FEEDBACK CONTROLLER");
+            Debug.LogWarning("Volante e pedais Logitech não estão conectados.");
         }
     }
 
