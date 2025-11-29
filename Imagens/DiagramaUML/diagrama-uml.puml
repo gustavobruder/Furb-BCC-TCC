@@ -1,0 +1,264 @@
+@startuml
+class CarroCameras {
+  public Camera cameraPrimeiraPessoa
+  public Camera cameraTerceiraPessoa
+  private Quaternion _cameraPrimeiraPessoaRotacaoInicial
+  private Quaternion _cameraTerceiraPessoaRotacaoInicial
+  private void Start()
+  public Camera ObterCamera()
+  private Quaternion ObterRotacaoInicialCamera()
+  public void AlternarCamera()
+  public void DefinirModoCamera()
+  public void ControlarPov(uint pov)
+}
+class CarroCintoSeguranca {
+  public Rigidbody rb
+  public CarroFreioMao carroFreioMao
+  public CarroMotor carroMotor
+  public Notificacao notificacao
+  public bool CintoDeSegurancaColocado { get; }
+  public void AlternarCintoDeSeguranca()
+}
+class CarroFreioMao {
+  public Rigidbody rb
+  public CarroCintoSeguranca carroCintoSeguranca
+  public CarroMotor carroMotor
+  public CarroRodas carroRodas
+  public Notificacao notificacao
+  public bool FreioDeMaoPuxado { get; }
+  public void AlternarFreioDeMao(bool puxarFreioDeMao)
+}
+class CarroJogador {
+  private Rigidbody _rb
+  public CarroCintoSeguranca carroCintoSeguranca
+  public CarroFreioMao carroFreioMao
+  public CarroMotor carroMotor
+  public CarroRodas carroRodas
+  public CarroVolante carroVolante
+  public CarroMarchas carroMarchas
+  public CarroCameras carroCameras
+  public Notificacao notificacao
+  private void Start()
+  private void OnApplicationQuit()
+  private void Update()
+  private void ProcessInput(LogitechGSDK.DIJOYSTATE2ENGINES logiState)
+  private bool BtnPressionado(LogitechGSDK.DIJOYSTATE2ENGINES logiState, int indiceBtn)
+  private void AtualizarFisicaMotorCarro(bool embreagemPressionada)
+  private void AplicarEfeitosVolante()
+  private void AplicarEfeitosVolante(float velocidade)
+  private void AplicarEfeitoEstradaBarroVolante(float velocidade)
+  private void AplicarEfeitoEstradaEscorregadiaVolante(float velocidade)
+}
+class CarroMarchas {
+  public Notificacao notificacao
+  public Marcha MarchaAtual { get; }
+  public void AumentarMarcha(bool embreagemPressionada)
+  public void ReduzirMarcha(bool embreagemPressionada)
+  private void TrocarMarcha(bool aumentarMarcha, bool embreagemPressionada)
+}
+class CarroMotor {
+  public Rigidbody rb
+  public CarroCintoSeguranca carroCintoSeguranca
+  public CarroFreioMao carroFreioMao
+  public Notificacao notificacao
+  public bool MotorLigado { get; }
+  public float RpmMotor { get; }
+  public void AlternarMotor()
+  private void LigarMotor()
+  private void DesligarMotor()
+  public void AtualizarRpmMotor(float rpmMotor)
+}
+class CarroRodas {
+  public WheelCollider rodaColliderFL
+  public WheelCollider rodaColliderFR
+  public WheelCollider rodaColliderRL
+  public WheelCollider rodaColliderRR
+  public Transform rodaMeshFL
+  public Transform rodaMeshFR
+  public Transform rodaMeshRL
+  public Transform rodaMeshRR
+  public void AplicarDirecaoVolante(float anguloDirecao)
+  public void AplicarTorqueMotor(float torqueMotor)
+  public void AplicarFreioDianteiro(float freioDianteiro)
+  public void AplicarFreioTraseiro(float freioTraseiro)
+  public void AtualizarRodas()
+}
+class CarroStatus {
+  public Image cintoDeSegurancaImg
+  public Sprite cintoDeSegurancaAtivadoSprite
+  public Sprite cintoDeSegurancaDesativadoSprite
+  public Image motorImg
+  public Sprite motorAtivadoSprite
+  public Sprite motorDesativadoSprite
+  public Image freioDeMaoImg
+  public Sprite freioDeMaoAtivadoSprite
+  public Sprite freioDeMaoDesativadoSprite
+  public Image marchaImg
+  public Sprite marchaRSprite
+  public Sprite marchaNSprite
+  public Sprite marchaM1Sprite
+  public Sprite marchaM2Sprite
+  public Sprite marchaM3Sprite
+  public Sprite marchaM4Sprite
+  public Sprite marchaM5Sprite
+  public SpawnerCarroSelecionado spawnerCarroSelecionado
+  private CarroCintoSeguranca _carroCintoSeguranca
+  private CarroMotor _carroMotor
+  private CarroFreioMao _carroFreioMao
+  private CarroMarchas _carroMarchas
+  private void Start()
+  private void Update()
+  private void AtualizarCarroStatus()
+  private Sprite ObterSpriteCintoDeSeguranca()
+  private Sprite ObterSpriteMotor()
+  private Sprite ObterSpriteFreioDeMao()
+  private Sprite ObterSpriteMarcha()
+}
+class CarroVolante {
+  public Transform volante
+  private Quaternion _rotacaoInicialVolante
+  private void Start()
+  public void AtualizarVolante(float anguloVolante)
+}
+class ContadorColisoes {
+  public Text textoColisoes
+  private void OnCollisionEnter(Collision collision)
+  private void DefinirTextoColisoes()
+}
+class Cronometro {
+  public Text textoCronometro
+  private void Update()
+  private void AtualizarCronometro()
+  public void PararCronometro()
+}
+class GerenciadorVagas {
+  public List<Transform> vagasEstacionamento
+  public List<GameObject> carrosPrefabs
+  public GameObject indicadorObjetivoPrefab
+  private Transform _vagaEstacionamentoSorteada
+  private int _indiceVagaEstacionamentoSorteada
+  private Vector3 _posicaoInicialIndicador
+  public BoxCollider BoxColliderVagaEstacionamentoSorteada { get; }
+  private void Start()
+  private void SortearVagaParaEstacionar()
+  private void AdicionarBoxColliderNaVagaSorteada()
+  private void GerarCarrosEstacionados()
+  private void GerarIndicadorObjetivo()
+  private void Start()
+  private void Update()
+}
+class IndicadorFlutuante {
+}
+class MenuRotacionarCarro {
+  private void FixedUpdate()
+}
+class MenuSelecionarCarro {
+  public Button btnEsquerda
+  public Button btnDireita
+  private int _indiceCarroSelecionado
+  private void Start()
+  private void Update()
+  public void Esquerda()
+  public void Direita()
+  private void DefinirCarroSelecionado()
+  private void SalvarIndiceCarroSelecionado()
+  public void JogarFase1()
+  public void JogarFase2()
+  public void JogarFase3()
+}
+class Notificacao {
+  public GameObject painelNotificacao
+  public Image imagemNotificacao
+  public TextMeshProUGUI textoNotificacao
+  private Coroutine _coroutineAtiva
+  private void Awake()
+  public void MostrarNotificacaoAviso(string mensagem)
+  public void MostrarNotificacaoSucesso(string mensagem)
+  private void MostrarNotificacao(string mensagem, Color corPainel, Color corTexto)
+  private IEnumerator MostrarNotificacaoCoroutine(string mensagem, Color corPainel, Color corTexto)
+}
+class SpawnerCarroSelecionado {
+  public GameObject CarrosSelecionado { get; }
+  private void Awake()
+}
+class Velocimetro {
+  public Text textoRpm
+  public RectTransform ponteiroVelocimetro
+  public SpawnerCarroSelecionado spawnerCarroSelecionado
+  private Rigidbody _rb
+  private CarroMotor _carroMotor
+  private void Start()
+  private void Update()
+  private void DefinirTextoRpm()
+  private void AtualizarVelocidade()
+  private void AtualizarPonteiroVelocimetro()
+}
+class VerificarCarroNaVaga {
+  public Rigidbody rb
+  public BoxCollider carroCollider
+  public GerenciadorVagas gerenciadorVagas
+  public CarroCintoSeguranca carroCintoSeguranca
+  public CarroMotor carroMotor
+  public CarroFreioMao carroFreioMao
+  public Cronometro cronometro
+  public Notificacao notificacao
+  private void OnTriggerEnter(Collider other)
+  private void OnTriggerExit(Collider other)
+  private void Update()
+  private bool CarroEstacionadoCorretamente()
+  private bool CarroEstaDentroDaVaga()
+  private bool PontosDoCarroEstaoTodosDentroDaVaga()
+  private bool PontoEstaDentroDaVaga(Vector3 ponto)
+}
+MonoBehaviour <|-- CarroCameras
+MonoBehaviour <|-- CarroCintoSeguranca
+MonoBehaviour <|-- CarroFreioMao
+MonoBehaviour <|-- CarroJogador
+MonoBehaviour <|-- CarroMarchas
+MonoBehaviour <|-- CarroMotor
+MonoBehaviour <|-- CarroRodas
+MonoBehaviour <|-- CarroStatus
+MonoBehaviour <|-- CarroVolante
+MonoBehaviour <|-- ContadorColisoes
+MonoBehaviour <|-- Cronometro
+MonoBehaviour <|-- GerenciadorVagas
+MonoBehaviour <|-- IndicadorFlutuante
+MonoBehaviour <|-- MenuRotacionarCarro
+MonoBehaviour <|-- MenuSelecionarCarro
+MonoBehaviour <|-- Notificacao
+MonoBehaviour <|-- SpawnerCarroSelecionado
+MonoBehaviour <|-- Velocimetro
+MonoBehaviour <|-- VerificarCarroNaVaga
+CarroCintoSeguranca *-- CarroFreioMao
+CarroCintoSeguranca *-- CarroMotor
+CarroCintoSeguranca *-- Notificacao
+CarroFreioMao *-- CarroCintoSeguranca
+CarroFreioMao *-- CarroMotor
+CarroFreioMao *-- CarroRodas
+CarroFreioMao *-- Notificacao
+CarroJogador *-- CarroCintoSeguranca
+CarroJogador *-- CarroFreioMao
+CarroJogador *-- CarroMotor
+CarroJogador *-- CarroRodas
+CarroJogador *-- CarroVolante
+CarroJogador *-- CarroMarchas
+CarroJogador *-- CarroCameras
+CarroJogador *-- Notificacao
+CarroMarchas *-- Notificacao
+CarroMotor *-- CarroCintoSeguranca
+CarroMotor *-- CarroFreioMao
+CarroMotor *-- Notificacao
+CarroStatus *-- SpawnerCarroSelecionado
+CarroStatus *-- CarroCintoSeguranca
+CarroStatus *-- CarroMotor
+CarroStatus *-- CarroFreioMao
+CarroStatus *-- CarroMarchas
+Velocimetro *-- SpawnerCarroSelecionado
+Velocimetro *-- CarroMotor
+VerificarCarroNaVaga *-- GerenciadorVagas
+VerificarCarroNaVaga *-- CarroCintoSeguranca
+VerificarCarroNaVaga *-- CarroMotor
+VerificarCarroNaVaga *-- CarroFreioMao
+VerificarCarroNaVaga *-- Cronometro
+VerificarCarroNaVaga *-- Notificacao
+@enduml
