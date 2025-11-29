@@ -1463,10 +1463,26 @@ PrefabInstance:
       propertyPath: notificacao
       value: 
       objectReference: {fileID: 1820025561}
+    - target: {fileID: 1005114277514832261, guid: 003df1a387e314e4396886e7e5b1e3b5, type: 3}
+      propertyPath: carroMarchas
+      value: 
+      objectReference: {fileID: 1658790022}
+    - target: {fileID: 2240966404792349346, guid: 003df1a387e314e4396886e7e5b1e3b5, type: 3}
+      propertyPath: carroMotor
+      value: 
+      objectReference: {fileID: 128448620}
     - target: {fileID: 2240966404792349346, guid: 003df1a387e314e4396886e7e5b1e3b5, type: 3}
       propertyPath: notificacao
       value: 
       objectReference: {fileID: 1820025561}
+    - target: {fileID: 2240966404792349346, guid: 003df1a387e314e4396886e7e5b1e3b5, type: 3}
+      propertyPath: carroFreioMao
+      value: 
+      objectReference: {fileID: 892588544}
+    - target: {fileID: 2240966404792349346, guid: 003df1a387e314e4396886e7e5b1e3b5, type: 3}
+      propertyPath: carroCintoSeguranca
+      value: 
+      objectReference: {fileID: 892588545}
     - target: {fileID: 2316974659678934490, guid: 003df1a387e314e4396886e7e5b1e3b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -7310,13 +7326,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1820025561}
     - target: {fileID: 7095392288885760499, guid: 5a722d2f0b8f25a45990a49177a7a5ba, type: 3}
+      propertyPath: carroMotor
+      value: 
+      objectReference: {fileID: 644551198}
+    - target: {fileID: 7095392288885760499, guid: 5a722d2f0b8f25a45990a49177a7a5ba, type: 3}
       propertyPath: notificacao
       value: 
       objectReference: {fileID: 1820025561}
+    - target: {fileID: 7095392288885760499, guid: 5a722d2f0b8f25a45990a49177a7a5ba, type: 3}
+      propertyPath: carroFreioMao
+      value: 
+      objectReference: {fileID: 1993283013}
+    - target: {fileID: 7095392288885760499, guid: 5a722d2f0b8f25a45990a49177a7a5ba, type: 3}
+      propertyPath: carroCintoSeguranca
+      value: 
+      objectReference: {fileID: 698441664}
     - target: {fileID: 8030529251758351187, guid: 5a722d2f0b8f25a45990a49177a7a5ba, type: 3}
       propertyPath: notificacao
       value: 
       objectReference: {fileID: 1820025561}
+    - target: {fileID: 8030529251758351187, guid: 5a722d2f0b8f25a45990a49177a7a5ba, type: 3}
+      propertyPath: carroMarchas
+      value: 
+      objectReference: {fileID: 158257186}
     - target: {fileID: 9169428753022631857, guid: 5a722d2f0b8f25a45990a49177a7a5ba, type: 3}
       propertyPath: notificacao
       value: 
@@ -7763,6 +7795,17 @@ Transform:
   - {fileID: 480161672}
   m_Father: {fileID: 981785828}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &698441664 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4982514355363129610, guid: 5a722d2f0b8f25a45990a49177a7a5ba, type: 3}
+  m_PrefabInstance: {fileID: 644551193}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644551195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd1f39672bba4dd282217c4c806e7b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &700881146
 GameObject:
   m_ObjectHideFlags: 0
@@ -10271,6 +10314,39 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 890352400}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &892588544 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1005114277514832261, guid: 003df1a387e314e4396886e7e5b1e3b5, type: 3}
+  m_PrefabInstance: {fileID: 128448615}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128448617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b826b9fae5154104bb77d5098f84b783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &892588545 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7033300355814214046, guid: 003df1a387e314e4396886e7e5b1e3b5, type: 3}
+  m_PrefabInstance: {fileID: 128448615}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128448617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd1f39672bba4dd282217c4c806e7b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &896621704 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8009696160951381042, guid: 72253bb5b78b1164a9da18130b02725c, type: 3}
+  m_PrefabInstance: {fileID: 1644203267}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644203269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b826b9fae5154104bb77d5098f84b783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &899269419
 GameObject:
   m_ObjectHideFlags: 0
@@ -10597,6 +10673,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 931097113}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &933794619 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5391979324967537307, guid: 5009a64d750dcf94da0c1a3a67b2f06d, type: 3}
+  m_PrefabInstance: {fileID: 1027284791}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027284793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b826b9fae5154104bb77d5098f84b783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &933794620 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 536054554126125352, guid: 5009a64d750dcf94da0c1a3a67b2f06d, type: 3}
+  m_PrefabInstance: {fileID: 1027284791}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027284793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd1f39672bba4dd282217c4c806e7b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &934740928
 GameObject:
   m_ObjectHideFlags: 0
@@ -11411,6 +11509,10 @@ PrefabInstance:
       propertyPath: notificacao
       value: 
       objectReference: {fileID: 1820025561}
+    - target: {fileID: 5391979324967537307, guid: 5009a64d750dcf94da0c1a3a67b2f06d, type: 3}
+      propertyPath: carroMarchas
+      value: 
+      objectReference: {fileID: 1667686233}
     - target: {fileID: 6310788021373370401, guid: 5009a64d750dcf94da0c1a3a67b2f06d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -11452,9 +11554,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6363726420736204839, guid: 5009a64d750dcf94da0c1a3a67b2f06d, type: 3}
+      propertyPath: carroMotor
+      value: 
+      objectReference: {fileID: 1027284796}
+    - target: {fileID: 6363726420736204839, guid: 5009a64d750dcf94da0c1a3a67b2f06d, type: 3}
       propertyPath: notificacao
       value: 
       objectReference: {fileID: 1820025561}
+    - target: {fileID: 6363726420736204839, guid: 5009a64d750dcf94da0c1a3a67b2f06d, type: 3}
+      propertyPath: carroFreioMao
+      value: 
+      objectReference: {fileID: 933794619}
+    - target: {fileID: 6363726420736204839, guid: 5009a64d750dcf94da0c1a3a67b2f06d, type: 3}
+      propertyPath: carroCintoSeguranca
+      value: 
+      objectReference: {fileID: 933794620}
     - target: {fileID: 6518830021395997981, guid: 5009a64d750dcf94da0c1a3a67b2f06d, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -13895,6 +14009,10 @@ PrefabInstance:
       propertyPath: notificacao
       value: 
       objectReference: {fileID: 1820025561}
+    - target: {fileID: 3656181848961535375, guid: 6736cd20b373bfa4ea500f6111c8b197, type: 3}
+      propertyPath: carroMarchas
+      value: 
+      objectReference: {fileID: 1225354788}
     - target: {fileID: 3850502340802162483, guid: 6736cd20b373bfa4ea500f6111c8b197, type: 3}
       propertyPath: cronometro
       value: 
@@ -13940,9 +14058,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5360855364172032910, guid: 6736cd20b373bfa4ea500f6111c8b197, type: 3}
+      propertyPath: carroMotor
+      value: 
+      objectReference: {fileID: 1199315468}
+    - target: {fileID: 5360855364172032910, guid: 6736cd20b373bfa4ea500f6111c8b197, type: 3}
       propertyPath: notificacao
       value: 
       objectReference: {fileID: 1820025561}
+    - target: {fileID: 5360855364172032910, guid: 6736cd20b373bfa4ea500f6111c8b197, type: 3}
+      propertyPath: carroFreioMao
+      value: 
+      objectReference: {fileID: 1774230238}
+    - target: {fileID: 5360855364172032910, guid: 6736cd20b373bfa4ea500f6111c8b197, type: 3}
+      propertyPath: carroCintoSeguranca
+      value: 
+      objectReference: {fileID: 1774230239}
     - target: {fileID: 7045122300210316007, guid: 6736cd20b373bfa4ea500f6111c8b197, type: 3}
       propertyPath: notificacao
       value: 
@@ -18639,9 +18769,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5966146513558193957, guid: 72253bb5b78b1164a9da18130b02725c, type: 3}
+      propertyPath: carroMotor
+      value: 
+      objectReference: {fileID: 1644203272}
+    - target: {fileID: 5966146513558193957, guid: 72253bb5b78b1164a9da18130b02725c, type: 3}
       propertyPath: notificacao
       value: 
       objectReference: {fileID: 1820025561}
+    - target: {fileID: 5966146513558193957, guid: 72253bb5b78b1164a9da18130b02725c, type: 3}
+      propertyPath: carroFreioMao
+      value: 
+      objectReference: {fileID: 896621704}
+    - target: {fileID: 5966146513558193957, guid: 72253bb5b78b1164a9da18130b02725c, type: 3}
+      propertyPath: carroCintoSeguranca
+      value: 
+      objectReference: {fileID: 1749321174}
     - target: {fileID: 6550420500342926421, guid: 72253bb5b78b1164a9da18130b02725c, type: 3}
       propertyPath: textoColisoes
       value: 
@@ -18650,6 +18792,10 @@ PrefabInstance:
       propertyPath: notificacao
       value: 
       objectReference: {fileID: 1820025561}
+    - target: {fileID: 8009696160951381042, guid: 72253bb5b78b1164a9da18130b02725c, type: 3}
+      propertyPath: carroMarchas
+      value: 
+      objectReference: {fileID: 1461173949}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19986,6 +20132,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 35807f23e7899e541b60b2fb2bbb51ef, type: 3}
   m_PrefabInstance: {fileID: 1742555918}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1749321174 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4685398863036035008, guid: 72253bb5b78b1164a9da18130b02725c, type: 3}
+  m_PrefabInstance: {fileID: 1644203267}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644203269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd1f39672bba4dd282217c4c806e7b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1773804256 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7146310648976105897, guid: 5009a64d750dcf94da0c1a3a67b2f06d, type: 3}
@@ -19995,6 +20152,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: edcb30d43255e034890ff1938e6abe52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1774230238 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3656181848961535375, guid: 6736cd20b373bfa4ea500f6111c8b197, type: 3}
+  m_PrefabInstance: {fileID: 1199315463}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199315465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b826b9fae5154104bb77d5098f84b783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1774230239 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7045122300210316007, guid: 6736cd20b373bfa4ea500f6111c8b197, type: 3}
+  m_PrefabInstance: {fileID: 1199315463}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199315465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd1f39672bba4dd282217c4c806e7b2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1780547936
@@ -22180,6 +22359,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1981448122}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1993283013 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8030529251758351187, guid: 5a722d2f0b8f25a45990a49177a7a5ba, type: 3}
+  m_PrefabInstance: {fileID: 644551193}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644551195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b826b9fae5154104bb77d5098f84b783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2020135544
 GameObject:
   m_ObjectHideFlags: 0

@@ -1522,6 +1522,10 @@ PrefabInstance:
       propertyPath: notificacao
       value: 
       objectReference: {fileID: 2028614707}
+    - target: {fileID: 3656181848961535375, guid: 6736cd20b373bfa4ea500f6111c8b197, type: 3}
+      propertyPath: carroMarchas
+      value: 
+      objectReference: {fileID: 1391179580}
     - target: {fileID: 3850502340802162483, guid: 6736cd20b373bfa4ea500f6111c8b197, type: 3}
       propertyPath: cronometro
       value: 
@@ -1567,9 +1571,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5360855364172032910, guid: 6736cd20b373bfa4ea500f6111c8b197, type: 3}
+      propertyPath: carroMotor
+      value: 
+      objectReference: {fileID: 148085351}
+    - target: {fileID: 5360855364172032910, guid: 6736cd20b373bfa4ea500f6111c8b197, type: 3}
       propertyPath: notificacao
       value: 
       objectReference: {fileID: 2028614707}
+    - target: {fileID: 5360855364172032910, guid: 6736cd20b373bfa4ea500f6111c8b197, type: 3}
+      propertyPath: carroFreioMao
+      value: 
+      objectReference: {fileID: 880190584}
+    - target: {fileID: 5360855364172032910, guid: 6736cd20b373bfa4ea500f6111c8b197, type: 3}
+      propertyPath: carroCintoSeguranca
+      value: 
+      objectReference: {fileID: 880190585}
     - target: {fileID: 7045122300210316007, guid: 6736cd20b373bfa4ea500f6111c8b197, type: 3}
       propertyPath: notificacao
       value: 
@@ -8285,9 +8301,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5966146513558193957, guid: 72253bb5b78b1164a9da18130b02725c, type: 3}
+      propertyPath: carroMotor
+      value: 
+      objectReference: {fileID: 741337982}
+    - target: {fileID: 5966146513558193957, guid: 72253bb5b78b1164a9da18130b02725c, type: 3}
       propertyPath: notificacao
       value: 
       objectReference: {fileID: 2028614707}
+    - target: {fileID: 5966146513558193957, guid: 72253bb5b78b1164a9da18130b02725c, type: 3}
+      propertyPath: carroFreioMao
+      value: 
+      objectReference: {fileID: 1960428199}
+    - target: {fileID: 5966146513558193957, guid: 72253bb5b78b1164a9da18130b02725c, type: 3}
+      propertyPath: carroCintoSeguranca
+      value: 
+      objectReference: {fileID: 1960428200}
     - target: {fileID: 6550420500342926421, guid: 72253bb5b78b1164a9da18130b02725c, type: 3}
       propertyPath: textoColisoes
       value: 
@@ -8296,6 +8324,10 @@ PrefabInstance:
       propertyPath: notificacao
       value: 
       objectReference: {fileID: 2028614707}
+    - target: {fileID: 8009696160951381042, guid: 72253bb5b78b1164a9da18130b02725c, type: 3}
+      propertyPath: carroMarchas
+      value: 
+      objectReference: {fileID: 106756874}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9184,6 +9216,28 @@ Transform:
   - {fileID: 361265620}
   m_Father: {fileID: 1648315815}
   m_LocalEulerAnglesHint: {x: 0, y: -31, z: 0}
+--- !u!114 &880190584 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3656181848961535375, guid: 6736cd20b373bfa4ea500f6111c8b197, type: 3}
+  m_PrefabInstance: {fileID: 148085346}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148085348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b826b9fae5154104bb77d5098f84b783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &880190585 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7045122300210316007, guid: 6736cd20b373bfa4ea500f6111c8b197, type: 3}
+  m_PrefabInstance: {fileID: 148085346}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148085348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd1f39672bba4dd282217c4c806e7b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &889789466
 GameObject:
   m_ObjectHideFlags: 0
@@ -9293,6 +9347,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 889789466}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &901107480 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5391979324967537307, guid: 5009a64d750dcf94da0c1a3a67b2f06d, type: 3}
+  m_PrefabInstance: {fileID: 2097445430}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097445432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b826b9fae5154104bb77d5098f84b783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &901107481 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 536054554126125352, guid: 5009a64d750dcf94da0c1a3a67b2f06d, type: 3}
+  m_PrefabInstance: {fileID: 2097445430}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097445432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd1f39672bba4dd282217c4c806e7b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &903823973
 GameObject:
   m_ObjectHideFlags: 0
@@ -18857,13 +18933,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2028614707}
     - target: {fileID: 7095392288885760499, guid: 5a722d2f0b8f25a45990a49177a7a5ba, type: 3}
+      propertyPath: carroMotor
+      value: 
+      objectReference: {fileID: 1731383180}
+    - target: {fileID: 7095392288885760499, guid: 5a722d2f0b8f25a45990a49177a7a5ba, type: 3}
       propertyPath: notificacao
       value: 
       objectReference: {fileID: 2028614707}
+    - target: {fileID: 7095392288885760499, guid: 5a722d2f0b8f25a45990a49177a7a5ba, type: 3}
+      propertyPath: carroFreioMao
+      value: 
+      objectReference: {fileID: 1947790555}
+    - target: {fileID: 7095392288885760499, guid: 5a722d2f0b8f25a45990a49177a7a5ba, type: 3}
+      propertyPath: carroCintoSeguranca
+      value: 
+      objectReference: {fileID: 1947790556}
     - target: {fileID: 8030529251758351187, guid: 5a722d2f0b8f25a45990a49177a7a5ba, type: 3}
       propertyPath: notificacao
       value: 
       objectReference: {fileID: 2028614707}
+    - target: {fileID: 8030529251758351187, guid: 5a722d2f0b8f25a45990a49177a7a5ba, type: 3}
+      propertyPath: carroMarchas
+      value: 
+      objectReference: {fileID: 948193665}
     - target: {fileID: 9169428753022631857, guid: 5a722d2f0b8f25a45990a49177a7a5ba, type: 3}
       propertyPath: notificacao
       value: 
@@ -20501,10 +20593,26 @@ PrefabInstance:
       propertyPath: notificacao
       value: 
       objectReference: {fileID: 2028614707}
+    - target: {fileID: 1005114277514832261, guid: 003df1a387e314e4396886e7e5b1e3b5, type: 3}
+      propertyPath: carroMarchas
+      value: 
+      objectReference: {fileID: 994851628}
+    - target: {fileID: 2240966404792349346, guid: 003df1a387e314e4396886e7e5b1e3b5, type: 3}
+      propertyPath: carroMotor
+      value: 
+      objectReference: {fileID: 1923414742}
     - target: {fileID: 2240966404792349346, guid: 003df1a387e314e4396886e7e5b1e3b5, type: 3}
       propertyPath: notificacao
       value: 
       objectReference: {fileID: 2028614707}
+    - target: {fileID: 2240966404792349346, guid: 003df1a387e314e4396886e7e5b1e3b5, type: 3}
+      propertyPath: carroFreioMao
+      value: 
+      objectReference: {fileID: 1956337899}
+    - target: {fileID: 2240966404792349346, guid: 003df1a387e314e4396886e7e5b1e3b5, type: 3}
+      propertyPath: carroCintoSeguranca
+      value: 
+      objectReference: {fileID: 1956337900}
     - target: {fileID: 2316974659678934490, guid: 003df1a387e314e4396886e7e5b1e3b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8
@@ -20903,6 +21011,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1944425673}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1947790555 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8030529251758351187, guid: 5a722d2f0b8f25a45990a49177a7a5ba, type: 3}
+  m_PrefabInstance: {fileID: 1731383175}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731383177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b826b9fae5154104bb77d5098f84b783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1947790556 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4982514355363129610, guid: 5a722d2f0b8f25a45990a49177a7a5ba, type: 3}
+  m_PrefabInstance: {fileID: 1731383175}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731383177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd1f39672bba4dd282217c4c806e7b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1950055606
 GameObject:
   m_ObjectHideFlags: 0
@@ -21011,6 +21141,50 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1950055606}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1956337899 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1005114277514832261, guid: 003df1a387e314e4396886e7e5b1e3b5, type: 3}
+  m_PrefabInstance: {fileID: 1923414737}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923414739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b826b9fae5154104bb77d5098f84b783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1956337900 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7033300355814214046, guid: 003df1a387e314e4396886e7e5b1e3b5, type: 3}
+  m_PrefabInstance: {fileID: 1923414737}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923414739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd1f39672bba4dd282217c4c806e7b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1960428199 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8009696160951381042, guid: 72253bb5b78b1164a9da18130b02725c, type: 3}
+  m_PrefabInstance: {fileID: 741337977}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741337979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b826b9fae5154104bb77d5098f84b783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1960428200 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4685398863036035008, guid: 72253bb5b78b1164a9da18130b02725c, type: 3}
+  m_PrefabInstance: {fileID: 741337977}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741337979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd1f39672bba4dd282217c4c806e7b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1965694962
 GameObject:
   m_ObjectHideFlags: 0
@@ -22451,6 +22625,10 @@ PrefabInstance:
       propertyPath: notificacao
       value: 
       objectReference: {fileID: 2028614707}
+    - target: {fileID: 5391979324967537307, guid: 5009a64d750dcf94da0c1a3a67b2f06d, type: 3}
+      propertyPath: carroMarchas
+      value: 
+      objectReference: {fileID: 122847547}
     - target: {fileID: 6310788021373370401, guid: 5009a64d750dcf94da0c1a3a67b2f06d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8
@@ -22492,9 +22670,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6363726420736204839, guid: 5009a64d750dcf94da0c1a3a67b2f06d, type: 3}
+      propertyPath: carroMotor
+      value: 
+      objectReference: {fileID: 2097445435}
+    - target: {fileID: 6363726420736204839, guid: 5009a64d750dcf94da0c1a3a67b2f06d, type: 3}
       propertyPath: notificacao
       value: 
       objectReference: {fileID: 2028614707}
+    - target: {fileID: 6363726420736204839, guid: 5009a64d750dcf94da0c1a3a67b2f06d, type: 3}
+      propertyPath: carroFreioMao
+      value: 
+      objectReference: {fileID: 901107480}
+    - target: {fileID: 6363726420736204839, guid: 5009a64d750dcf94da0c1a3a67b2f06d, type: 3}
+      propertyPath: carroCintoSeguranca
+      value: 
+      objectReference: {fileID: 901107481}
     - target: {fileID: 6518830021395997981, guid: 5009a64d750dcf94da0c1a3a67b2f06d, type: 3}
       propertyPath: m_IsActive
       value: 1

@@ -4,6 +4,9 @@ using UnityEngine;
 public class CarroMarchas : MonoBehaviour
 {
     [Header("Marchas")]
+    public CarroCintoSeguranca carroCintoSeguranca;
+    public CarroMotor carroMotor;
+    public CarroFreioMao carroFreioMao;
     public Notificacao notificacao;
     public Marcha MarchaAtual { get; private set; } = Marcha.N;
 
@@ -15,6 +18,21 @@ public class CarroMarchas : MonoBehaviour
 
     private void TrocarMarcha(bool aumentarMarcha, bool embreagemPressionada)
     {
+        if (!carroCintoSeguranca.CintoDeSegurancaColocado)
+        {
+            notificacao.MostrarNotificacaoAviso("O cinto de segurança deve estar colocado para trocar de marcha.");
+            return;
+        }
+        if (!carroMotor.MotorLigado)
+        {
+            notificacao.MostrarNotificacaoAviso("O motor do carro deve estar ligado para trocar de marcha.");
+            return;
+        }
+        if (carroFreioMao.FreioDeMaoPuxado)
+        {
+            notificacao.MostrarNotificacaoAviso("O freio de mão deve estar solto para trocar de marcha.");
+            return;
+        }
         if (!embreagemPressionada)
         {
             notificacao.MostrarNotificacaoAviso("Pise na embreagem para trocar de marcha.");

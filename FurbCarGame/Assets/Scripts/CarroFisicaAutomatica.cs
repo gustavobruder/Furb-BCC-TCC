@@ -96,33 +96,33 @@ public class CarroFisicaAutomatica : MonoBehaviour
         {
             case Marcha.M1:
                 if (velocidade > _velocidadeTrocaMarcha1)
-                    carroMarchas.AumentarMarcha(true);
+                    carroMarchas.AumentarMarcha(embreagemPressionada: true);
                 break;
     
             case Marcha.M2:
                 if (velocidade > _velocidadeTrocaMarcha2)
-                    carroMarchas.AumentarMarcha(true);
+                    carroMarchas.AumentarMarcha(embreagemPressionada: true);
                 else if (velocidade < _velocidadeTrocaMarcha1)
-                    carroMarchas.ReduzirMarcha(true);
+                    carroMarchas.ReduzirMarcha(embreagemPressionada: true);
                 break;
     
             case Marcha.M3:
                 if (velocidade > _velocidadeTrocaMarcha3)
-                    carroMarchas.AumentarMarcha(true);
+                    carroMarchas.AumentarMarcha(embreagemPressionada: true);
                 else if (velocidade < _velocidadeTrocaMarcha2)
-                    carroMarchas.ReduzirMarcha(true);
+                    carroMarchas.ReduzirMarcha(embreagemPressionada: true);
                 break;
     
             case Marcha.M4:
                 if (velocidade > _velocidadeTrocaMarcha4)
-                    carroMarchas.AumentarMarcha(true);
+                    carroMarchas.AumentarMarcha(embreagemPressionada: true);
                 else if (velocidade < _velocidadeTrocaMarcha3)
-                    carroMarchas.ReduzirMarcha(true);
+                    carroMarchas.ReduzirMarcha(embreagemPressionada: true);
                 break;
 
             case Marcha.M5:
                 if (velocidade < _velocidadeTrocaMarcha4)
-                    carroMarchas.ReduzirMarcha(true);
+                    carroMarchas.ReduzirMarcha(embreagemPressionada: true);
                 break;
         }
     }

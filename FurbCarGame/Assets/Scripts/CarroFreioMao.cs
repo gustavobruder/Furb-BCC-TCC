@@ -6,6 +6,7 @@ public class CarroFreioMao : MonoBehaviour
     public Rigidbody rb;
     public CarroCintoSeguranca carroCintoSeguranca;
     public CarroMotor carroMotor;
+    public CarroMarchas carroMarchas;
     public CarroRodas carroRodas;
     public Notificacao notificacao;
     public bool FreioDeMaoPuxado { get; private set; } = true;
@@ -29,6 +30,11 @@ public class CarroFreioMao : MonoBehaviour
         if (!carroMotor.MotorLigado)
         {
             notificacao.MostrarNotificacaoAviso($"O motor do carro deve estar ligado para {(FreioDeMaoPuxado ? "abaixar" : "puxar")} o freio de mão.");
+            return;
+        }
+        if (carroMarchas.MarchaAtual != Marcha.N)
+        {
+            notificacao.MostrarNotificacaoAviso($"A marcha deve estar em neutra para {(FreioDeMaoPuxado ? "abaixar" : "puxar")} o freio de mão.");
             return;
         }
 
